@@ -1,0 +1,501 @@
+1   人称代名詞主格(I)+be: I am	I_PP_I (am|'m)_VBP_be(?! (not|n't)_)
+1-1 人称代名詞主格(I)+be: I am not	I_PP_I (am|'m)_VBP_be (not|n't)_\S+
+1-2 人称代名詞主格(I)+be: Am I ...?	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kam_VBP_be I_PP_I(?! not_) .+? \?_SENT_\?
+1-3 人称代名詞主格(I)+be: Am I not ...?	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(am_VBP_be I_PP_I not_\S+|are_VBP_be n't_\S+ I_PP_I) .+? \?_SENT_\?
+2   人称代名詞主格(you)+be: You are	(^|\S+_(``|''|\(|,|:|LS)_\S+ )\Kyou_PP_you (are|'re)_VBP_be(?! (not|n't)_)
+2-1 人称代名詞主格(you)+be: You are not	(^|\S+_(``|''|\(|,|:|LS)_\S+ )\Kyou_PP_you (are|'re)_VBP_be (not|n't)_\S+
+2-2 人称代名詞主格(you)+be: Are you ...?	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kare_VBP_be you_PP_you(?! not_) .+? \?_SENT_\?
+2-3 人称代名詞主格(you)+be: Aren't you ...? / Are you not ...?	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kare_VBP_be (n't_\S+ you_PP_you|you_PP_you not_\S+) .+? \?_SENT_\?
+3   人称代名詞主格(he/she)+be: he/she is	\b(he|she)_PP_(he|she) (is|'s)_VBZ_be(?! (not|n't)_)
+3-1 人称代名詞主格(he/she)+be: he/she is not	\b(he|she)_PP_(he|she) (is|'s)_VBZ_be (not|n't)_\S+
+3-2 人称代名詞主格(he/she)+be: Is he/she ...?	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kis_VBZ_be (he|she)_PP_(he|she)(?! not_) .+? \?_SENT_\?
+3-3 人称代名詞主格(he/she)+be: Isn't he/she ...? / Is he/she not ...?	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kis_VBZ_be (n't_\S+ (he|she)_PP_(he|she)|(he|she)_PP_(he|she) not_\S+) .+? \?_SENT_\?
+4   人称代名詞主格(we)+be: we are	we_PP_we (are|'re)_VBP_be(?! (not|n't)_)
+4-1 人称代名詞主格(we)+be: we are not	we_PP_we (are|'re)_VBP_be (not|n't)_\S+
+4-2 人称代名詞主格(we)+be: Are we ...?	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kare_VBP_be we_PP_we(?! not_) .+? \?_SENT_\?
+4-3 人称代名詞主格(we)+be: Aren't we ...? / Are we not ...?	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kare_VBP_be (n't_\S+ we_PP_we|we_PP_we not_\S+) .+? \?_SENT_\?
+5   人称代名詞主格(they)+be: they are	they_PP_they (are|'re)_VBP_be(?! (not|n't)_)
+5-1 人称代名詞主格(we)+be: they are not	they_PP_they (are|'re)_VBP_be (not|n't)_\S+
+5-2 人称代名詞主格(we)+be: Are they ...?	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kare_VBP_be they_PP_they(?! not_) .+? \?_SENT_\?
+5-3 人称代名詞主格(we)+be: Aren't they ...? / Are they not ...?	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kare_VBP_be (n't_\S+ they_PP_they|they_PP_they not_\S+) .+? \?_SENT_\?
+6   人称代名詞所有格(my/our/your/her/their)	\b(my|our|your|her|their)_PP\$_\1\b
+7   人称代名詞目的格(me/us/him/her/them)	\b(me|us|him|her|them)_PP_\1\b
+8   指示代名詞(this/that)+be: This/That is	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(this|that)_\S+ (is|'s)_VBZ_be(?! (not|n't)_)
+8-1 指示代名詞(this/that)+be: This/That is not	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(this|that)_\S+ (is|'s)_VBZ_be (not|n't)_\S+
+8-2 指示代名詞(this/that)+be: Is this/that ...?	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kis_VBZ_be (this|that)_\S+_(this|that)(?! \S+_NN_\S+)(?! not_) .+? \?_SENT_\?
+8-3 指示代名詞(this/that)+be: Isn't this/that ...? / Is this/that not ...?	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kis_VBZ_be (n't_\S+ (this|that)_\S+_(this|that)(?! \S+_NN_\S+)|(this|that)_\S+ not_\S+) .+? \?_SENT_\?
+9   指示代名詞(these/those)+be: These/Those are	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(these|those)_\S+ (are|'re)_VBP_be(?! (not|n't)_)
+9-1 指示代名詞(these/those)+be: These/Those are not	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(these|those)_\S+ (are|'re)_VBP_be (not|n't)_\S+
+9-2 指示代名詞(these/those)+be: Are these/those ...?	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kare_VBP_be (these|those)_\S+_(these|those)(?! \S+_NNS_\S+)(?! not_) .+? \?_SENT_\?
+9-3 指示代名詞(these/those)+be: Aren't these/those ...? / Are these/those not ...?	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kare_VBP_be (n't_\S+ (these|those)_\S+_(these|those)(?! \S+_NNS_\S+)|(these|those)_\S+ not_\S+) .+? \?_SENT_\?
+10  指示代名詞(it)+be: It is	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kit_PP_it (is|'s)_VBZ_be(?! (not|n't)_)
+10-1    指示代名詞(it)+be: It is not	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kit_PP_it (is|'s)_VBZ_be (not|n't)_\S+
+10-2    指示代名詞(it)+be: Is it ...?	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kis_VBZ_be it_PP_it(?! not_) .+? \?_SENT_\?
+10-3    指示代名詞(it)+be: Isn't it ...? / Is it not ...?	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kis_VBZ_be (n't_\S+ it_PP_it|it_PP_it not_\S+) .+? \?_SENT_\?
+11  指示形容詞(This/That+名詞)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(this|that)_DT_(this|that) \S+_NN_\S+
+12  指示形容詞(These/Those+名詞)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(these|those)_DT_(these|those) \S+_NNS_\S+
+13  不定冠詞	\b(a|an)_DT_(a|an)\b
+14  定冠詞	the_DT_the
+15  決定詞(some/any)	(some|any)_DT_(some|any)
+16  決定詞(no)	no_DT_no
+17  決定詞(another)	another_DT_another
+18  much+不可算名詞	much_JJ_much \S+_NN_\S+
+19  little+不可算名詞	little_JJ_little \S+_NN_\S+
+20  few+複数形名詞	(?<!(a_DT_a |nother |_every |._next ))few_JJ_few \S+_NNS_\S+
+21  前置詞	\b(?<preposition>aboard|about|above|across|after|against|along|alongside|amid|amidst|among|amongst|around|at|before|behind|below|beneath|beside|besides|between|beyond|by|despite|down|during|en|ere|except|for|from|in|inside|into|like|minus|near|nearer|nearest|notwithstanding|of|off|on|onto|opposite|out|outside|over|past|per|plus|re|reference|round|sans|save|since|than|through|throughout|till|toward|towards|under|underneath|unlike|until|up|upon|v\.|versus|via|vs\.|with|within|without|worth)_IN_\g{preposition}\b
+22  所有代名詞	\b(mine|ours|yours|hers|theirs)_PP_\1\b
+23  再帰代名詞	\b(myself|ourselves|yourself|yourselves|himself|herself|itself|themselves|oneself)_PP_\1\b
+24  不定代名詞(-thing/-one/-body)	\b(some|every|any|no)(thing|one|body)_\S+_\1\2\b|no_(DT|RB)_no one_(CD|PP)_one
+25  不定代名詞・支柱語(ones)	\bones_NNS_one\b
+26  不定代名詞(none)	\bnone_NN_none\b
+27  相互代名詞(each other)	each_DT_each other_(JJ|NN)_other
+28  相互代名詞(one another)	one_(CD|PP)_one another_DT_another
+29  代名詞(others) (the othersを除く)	(?<!_the )\bothers_NNS_other\b
+30  代名詞(the other/others)	the_DT_the (other_JJ_other|others_NNS_other)\b(?! \S+_(N|CD|JJ))
+31  -thing+形容詞	\b((some|every|any|no)thing)_\S+_\1 \S+_JJ[RS]?_\S+
+32  副詞(頻度)	\b(always|usually|often|frequently|occasionally|sometimes|rarely)_RB_\1\b
+33  副詞(強意)	\b(extremely|greatly|really|so|terribly|too|unbelievably|very)_RB_\1 \S+_(JJ[RS]?|RB[RS]?)_\S+
+34  副詞(態度)	\b(apparently|clearly|fortunately|frankly|unfortunately)_RB_\1\b
+35  副詞(否定)	\bnever_RB_never\b
+36  副詞(準否定)	\b(hardly|(?<!_a )little|scarcely|seldom)_RB_\1\b
+37  同等比較(as+前置詞/副詞+as)	(?<!_not )(?<!_n't )as_(RB|IN)_as \S+_(JJ|RB)_\S+ as_(RB|IN)_as
+37-1    同等比較(as/so+前置詞/副詞+as)	\b(not|n't)_\S+ (as|so)_(RB|IN)_(as|so) \S+_(JJ|RB)_\S+ as_(RB|IN)_as
+38  比較級(優勢比較) (-er) (better等を含む)	\b(?!(more|less)_)\S+_(JJR|RBR)_\S+
+39  比較級(優勢比較) (more+形容詞/副詞)	more_RBR_more \S+_(JJ|RB)_\S+
+40  最上級(優勢比較) (-est) (best等を含む)	\b(?!(most|least)_)\S+_(JJS|RBS)_\S+
+41  最上級(優勢比較) (more+形容詞/副詞)	most_RBS_most \S+_(JJ|RB)_\S+
+42  劣勢比較	(less_RBR_less|least_RBS_least) \S+_(JJ|RB)_\S+
+43  形容詞/副詞+enough	(?!(not|n't)_)\b\S+_(JJR?|RBR?)_\S+ enough_RB_enough
+44  too+形容詞/副詞+to不定詞	too_RB_too \S+_(JJ|RB)_\S+ to_TO_to \S+_V._\S+
+45  so+形容詞/副詞+(that)節	\S+_VB.?_be \Kso_RB_so \S+_(JJ|RB)_\S+( that_IN/THAT_that)? ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \S+_(MD|V.[DPZ]|RB.?)_\S+
+46  such(+a/an)+形容詞+名詞	such_(PDT|JJ)_such( (a|an)_DT_(a|an))? \S+_JJ_\S+ \S+_NNS?_\S+
+47  so+形容詞+a/an+名詞	so_RB_so \S+_JJ_\S+ (a|an)_DT_(a|an) \S+_NN_\S+
+48  too+形容詞+a/an+名詞	too_RB_too \S+_JJ_\S+ (a|an)_DT_(a|an) \S+_NN_\S+
+49  比較級 and 比較級 (同じ比較級)	\b(\S+_(JJR|RBR)_\S+) and_CC_and \1
+50  the+比較級 (...), the+比較級	the_DT_the \S+_(JJR|RBR)_\S+( \S+_\S+_\S+){0,8} the_DT_the \S+_(JJR|RBR)_\S+
+51  比較級の強調 (evenなど)	(a_DT_a lot_(RB|NN)_lot|by_IN_by far_RB_far|even_RB_even|far_RB_far|much_RB_much|still_RB_still) \S+_(JJR|RBR)_\S+
+52  最上級の強調 (by far)	(by_IN_by far_RB_far|far_RB_far|far_RB_far and_CC_and away_RB_away|much_RB_much) the_DT_the \S+_(JJS|RBS)_\S+|the_DT_the very_RB_very \S+_(JJS|RBS)_\S+
+53  do/doesによる強調	((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \Kdo(es)?_VV[PZ]?_do \S+_V._\S+
+54  didによる強調	((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \Kdid_VVD_do \S+_V._\S+
+55  句動詞(動詞+パーティクル)	\S+_V[HV].?_\S+ (?<particle>about|above|across|after|along|alongside|around|before|behind|below|beside|besides|between|beyond|by|down|in|inside|near|off|on|out|outside|over|past|through|under|underneath|up)_RB_\g{particle}\b
+56  句動詞(動詞+名詞句・代名詞+パーティクル)	\S+_V[HV].?_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) (?<particle>about|above|across|after|along|alongside|around|before|behind|below|beside|besides|between|beyond|by|down|in|inside|near|off|on|out|outside|over|past|through|under|underneath|up)_RB_\g{particle}\b
+57  句動詞(動詞+パーティクル+前置詞+名詞句・代名詞)	\S+_V[HV].?_\S+ (?<particle>about|above|across|after|along|alongside|around|before|behind|below|beside|besides|between|beyond|by|down|in|inside|near|off|on|out|outside|over|past|through|under|underneath|up)_RB_\g{particle} (?<preposition>aboard|about|above|across|after|against|along|alongside|amid|amidst|among|amongst|around|at|before|behind|below|beneath|beside|besides|between|beyond|by|despite|down|during|en|ere|except|for|from|in|inside|into|like|minus|near|nearer|nearest|notwithstanding|of|off|on|onto|opposite|out|outside|over|past|per|plus|re|reference|round|sans|save|since|than|through|throughout|till|toward|towards|under|underneath|unlike|until|up|upon|v\.|versus|via|vs\.|with|within|without|wort)_IN_\g{preposition} ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)
+58  時制・相(現在)(be動詞)	((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \K(am|'m|are|'re|is|'s)_VB[PZ]_be(?! (not|n't)_)
+58-1    時制・相(現在)(be動詞)	((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \K(am|'m|are|'re|is|'s)_VB[PZ]_be (not|n't)_\S+
+58-2    時制・相(現在)(be動詞)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(am|are|is)_VB[PZ]_be ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)\b(?! not_) .+? \?_SENT_\?
+58-3    時制・相(現在)(be動詞)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(am|are|is)_VB[PZ]_be (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) .+? \?_SENT_\?
+59  時制・相(現在)(一般動詞・3人称単数以外)	((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \K\S+_VV[PZ]_(?!do\b)\S+
+59-1    時制・相(現在)(一般動詞・3人称単数以外)	((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \Kdo_VVP_do (not|n't)_\S+ \S+_V[HV]_\S+
+59-2    時制・相(現在)(一般動詞・3人称単数以外)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kdo_VVP?_do ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \S+_V[HV]P?_\S+ .+? \?_SENT_\?
+59-3    時制・相(現在)(一般動詞・3人称単数以外)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kdo_VVP?_do (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) \S+_V[HV]P_\S+ .+? \?_SENT_\?
+60  時制・相(現在)(一般動詞・3人称単数)	((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \K\S+_VVZ_(?!do\b)\S+
+60-1    時制・相(現在)(一般動詞・3人称単数)	((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \Kdoes_VVZ_do (not|n't)_\S+ \S+_V[HV]_\S+
+60-2    時制・相(現在)(一般動詞・3人称単数)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kdoes_VVZ_do ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \S+_V[HV]P?_\S+ .+? \?_SENT_\?
+60-3    時制・相(現在)(一般動詞・3人称単数)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kdoes_VVZ_do (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) \S+_V[HV]P?_\S+ .+? \?_SENT_\?
+61  時制・相(現在進行)	(am|'m|are|'re|is|'s)_VB[PZ]_be(?! (going_VVG_go to_TO_to|gonna_VVG_gonna) \S+_V._\S+) \S+_V.G_\S+
+61-1    時制・相(現在進行)	(am|'m|are|'re|is|'s)_VB[PZ]_be (not|n't)_\S+\b(?! (going_VVG_go to_TO_to|gonna_VVG_gonna) \S+_V._\S+) \S+_V.G_\S+
+61-2    時制・相(現在進行)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(am|are|is)_VB[PZ]_be ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)\b(?! (going_VVG_go to_TO_to|gonna_VVG_gonna) \S+_V._\S+) \S+_V.G_\S+ .*?\?_SENT_\?
+61-3    時制・相(現在進行)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(am|are|is)_VB[PZ]_be (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+)\b(?! (going_VVG_go to_TO_to|gonna_VVG_gonna) \S+_V._\S+) \S+_V.G_\S+ .*?\?_SENT_\?
+62  時制・相(現在完了)	(have|'ve|has|'s)_VH[PZ]_have \S+_V.N_\S+
+62-1    時制・相(現在完了)	(have|'ve|has|'s)_VH[PZ]_have (not|n't)_\S+ \S+_V.N_\S+
+62-2    時制・相(現在完了)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(have|has)_VH[PZ]_have ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \S+_V.N_\S+ .*?\?_SENT_\?
+62-3    時制・相(現在完了)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(have|has)_VH[PZ]_have (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) \S+_V.N_\S+ .*?\?_SENT_\?
+63  時制・相(現在完了進行)	(have|'ve|has|'s)_VH[PZ]_have been_VBN_be \S+_V.G_\S+
+63-1    時制・相(現在完了進行)	(have|'ve|has|'s)_VH[PZ]_have (not|n't)_\S+ been_VBN_be \S+_V.G_\S+
+63-2    時制・相(現在完了進行)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(have|has)_VH[PZ]_have ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) been_VBN_be \S+_V.G_\S+ .*?\?_SENT_\?
+63-3    時制・相(現在完了進行)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(have|has)_VH[PZ]_have (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) been_VBN_be \S+_V.G_\S+ .*?\?_SENT_\?
+64  時制・相(過去)(be動詞)	((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \K(was|were)_VBD_be(?! (not|n't)_)
+64-1    時制・相(過去)(be動詞)	((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \K(was|were)_VBD_be (not|n't)_\S+
+64-2    時制・相(過去)(be動詞)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(was|were)_VBD_be ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)\b(?! not_) .+? \?_SENT_\?
+64-3    時制・相(過去)(be動詞)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(was|were)_VBD_be (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) .+? \?_SENT_\?
+65  時制・相(過去)(一般動詞)	((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \K\S+_VVD_(?!did\b)\S+
+65-1    時制・相(過去)(一般動詞)	((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \Kdid_VVD_do (not|n't)_\S+ \S+_V[HV]_\S+
+65-2    時制・相(過去)(一般動詞)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kdid_VVD_do ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \S+_V[HV]P?_\S+ .+? \?_SENT_\?
+65-3    時制・相(過去)(一般動詞)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kdid_VVD_do (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) \S+_V[HV]P_\S+ .+? \?_SENT_\?
+66  時制・相(過去進行)	(was|were)_VBD_be(?! (going_VVG_go to_TO_to|gonna_VVG_gonna) \S+_V._\S+) \S+_V.G_\S+
+66-1    時制・相(過去進行)	(was|were)_VBD_be (not|n't)_\S+\b(?! (going_VVG_go to_TO_to|gonna_VVG_gonna) \S+_V._\S+) \S+_V.G_\S+
+66-2    時制・相(過去進行)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(was|were)_VBD_be ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)\b(?! (going_VVG_go to_TO_to|gonna_VVG_gonna) \S+_V._\S+) \S+_V.G_\S+ .*?\?_SENT_\?
+66-3    時制・相(過去進行)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(was|were)_VBD_be (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+)\b(?! (going_VVG_go to_TO_to|gonna_VVG_gonna) \S+_V._\S+) \S+_V.G_\S+ .*?\?_SENT_\?
+67  時制・相(過去完了)	(?<!_not )(?<!_n't )(had|'d)_VHD_have \S+_V.N_\S+
+67-1    時制・相(過去完了)	(had|'d)_VHD_have (not|n't)_\S+ \S+_V.N_\S+
+67-2    時制・相(過去完了)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Khad_VHD_have ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \S+_V.N_\S+ .*?\?_SENT_\?
+67-3    時制・相(過去完了)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Khad_VHD_have (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) \S+_V.N_\S+ .*?\?_SENT_\?
+68  時制・相(過去完了進行)	(had|'d)_VHD_have been_VBN_be \S+_V.G_\S+
+68-1    時制・相(過去完了進行)	(had|'d)_VHD_have (not|n't)_\S+ been_VBN_be \S+_V.G_\S+
+68-2    時制・相(過去完了進行)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Khad_VHD_have ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) been_VBN_be \S+_V.G_\S+ .*?\?_SENT_\?
+68-3    時制・相(過去完了進行)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Khad_VHD_have (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) been_VBN_be \S+_V.G_\S+ .*?\?_SENT_\?
+69  時制・相(未来)	((will|'ll)_MD_will|(am|'m|are|'re|is|'s)_VB[PZ]_be (going_VVG_go to_TO_to|gonna_VVG_gonna)) \S+_V._\S+
+69-1    時制・相(未来)	((will|'ll|wo)_MD_(will|wo) (not|n't)_\S+|(am|'m|are|'re|is|'s)_VB[PZ]_be (not|n't)_\S+ (going_VVG_go to_TO_to|gonna_VVG_gonna)) \S+_V._\S+
+69-2    時制・相(未来)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(will_MD_will ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|\S+_VB[PZ]_be ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) (going_VVG_go to_TO_to|gonna_VVG_gonna)) \S+_V._\S+ .*?\?_SENT_\?
+69-3    時制・相(未来)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(wo_MD_wo n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|will_MD_will ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+|\S+_VB[PZ]_be (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) (going_VVG_go to_TO_to|gonna_VVG_gonna)) \S+_V._\S+ .*?\?_SENT_\?
+70  時制・相(未来進行)	(will|'ll)_MD_will be_VB_be \S+_V.G_\S+
+70-1    時制・相(未来進行)	(will|'ll|wo)_MD_(will|wo) (not|n't)_\S+ be_VB_be \S+_V.G_\S+
+70-2    時制・相(未来進行)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kwill_MD_will ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) be_VB_be \S+_V.G_\S+ .*?\?_SENT_\?
+70-3    時制・相(未来進行)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(wo_MD_wo n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|will_MD_will ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) be_VB_be \S+_V.G_\S+ .*?\?_SENT_\?
+71  時制・相(未来完了)	(will|'ll)_MD_will have_VH_have \S+_V.N_\S+
+71-1    時制・相(未来完了)	(will|'ll|wo)_MD_(will|wo) (not|n't)_\S+ have_VH_have \S+_V.N_\S+
+71-2    時制・相(未来完了)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kwill_MD_will ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) have_VH_have \S+_V.N_\S+ .*?\?_SENT_\?
+71-3    時制・相(未来完了)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(wo_MD_wo n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|will_MD_will ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) have_VH_have \S+_V.N_\S+ .*?\?_SENT_\?
+72  時制・相(未来完了進行)	(will|'ll)_MD_will have_VH_have been_VBN_be \S+_V.G_\S+
+72-1    時制・相(未来完了進行)	(will|'ll|wo)_MD_(will|wo) (not|n't)_\S+ have_VH_have been_VBN_be \S+_V.G_\S+
+72-2    時制・相(未来完了進行)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kwill_MD_will ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) have_VH_have been_VBN_be \S+_V.G_\S+ .*?\?_SENT_\?
+72-3    時制・相(未来完了進行)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(wo_MD_wo n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|will_MD_will ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) have_VH_have been_VBN_be \S+_V.G_\S+ .*?\?_SENT_\?
+73  受動態(現在)	(am|'m|are|'re|is|'s)_VB[PZ]_be \S+_V.N_\S+
+73-1    受動態(現在)	(am|'m|are|'re|is|'s)_VB[PZ]_be (not|n't)_\S+ \S+_V.N_\S+
+73-2    受動態(現在)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(am|are|is)_VB[PZ]_be ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \S+_V.N_\S+ .*?\?_SENT_\?
+73-3    受動態(現在)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(am|are|is)_VB[PZ]_be (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) \S+_V.N_\S+ .*?\?_SENT_\?
+74  受動態(現在進行)	(am|'m|are|'re|is|'s)_VB[PZ]_be being_VBG_be \S+_V.N_\S+
+74-1    受動態(現在進行)	(am|'m|are|'re|is|'s)_VB[PZ]_be (not|n't)_\S+ being_VBG_be \S+_V.N_\S+
+74-2    受動態(現在進行)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(am|are|is)_VB[PZ]_be ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) being_VBG_be \S+_V.N_\S+ .*?\?_SENT_\?
+74-3    受動態(現在進行)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(am|are|is)_VB[PZ]_be (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) being_VBG_be \S+_V.N_\S+ .*?\?_SENT_\?
+75  受動態(現在完了)	(have|'ve|has|'s)_VH[PZ]_have been_VBN_be \S+_V.N_\S+
+75-1    受動態(現在完了)	(have|'ve|has|'s)_VH[PZ]_have (not|n't)_\S+ been_VBN_be \S+_V.N_\S+
+75-2    受動態(現在完了)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(have|has)_VH[PZ]_have ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) been_VBN_be \S+_V.N_\S+ .*?\?_SENT_\?
+75-3    受動態(現在完了)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(have|has)_VH[PZ]_have (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) been_VBN_be \S+_V.N_\S+ .*?\?_SENT_\?
+76  受動態(過去)	(was|were)_VBD_be \S+_V.N_\S+
+76-1    受動態(過去)	(was|were)_VBD_be (not|n't)_\S+ \S+_V.N_\S+
+76-2    受動態(過去)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(was|were)_VBD_be ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \S+_V.N_\S+ .*?\?_SENT_\?
+76-3    受動態(過去)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(was|were)_VBD_be (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) \S+_V.N_\S+ .*?\?_SENT_\?
+77  受動態(過去進行)	(was|were)_VBD_be being_VBG_be \S+_V.N_\S+
+77-1    受動態(過去進行)	(was|were)_VBD_be (not|n't)_\S+ being_VBG_be \S+_V.N_\S+
+77-2    受動態(過去進行)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(was|were)_VBD_be ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) being_VBG_be \S+_V.N_\S+ .*?\?_SENT_\?
+77-3    受動態(過去進行)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(was|were)_VBD_be (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) being_VBG_be \S+_V.N_\S+ .*?\?_SENT_\?
+78  受動態(過去完了)	(had|'d)_VHD_have been_VBN_be \S+_V.N_\S+
+78-1    受動態(過去完了)	(had|'d)_VHD_have (not|n't)_\S+ been_VBN_be \S+_V.N_\S+
+78-2    受動態(過去完了)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Khad_VHD_have ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) been_VBN_be \S+_V.N_\S+ .*?\?_SENT_\?
+78-3    受動態(過去完了)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Khad_VHD_have (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) been_VBN_be \S+_V.N_\S+ .*?\?_SENT_\?
+79  受動態(未来)	(will|'ll)_MD_will be_VB_be \S+_V.N_\S+
+79-1    受動態(未来)	(will|'ll|wo)_MD_(will|wo) (not|n't)_\S+ be_VB_be \S+_V.N_\S+
+79-2    受動態(未来)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kwill_MD_will ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) be_VB_be \S+_V.N_\S+ .*?\?_SENT_\?
+79-3    受動態(未来)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(wo_MD_wo n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|will_MD_will ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) be_VB_be \S+_V.N_\S+ .*?\?_SENT_\?
+80  受動態(未来進行)	(will|'ll)_MD_will be_VB_be being_VBG_be \S+_V.N_\S+
+80-1    受動態(未来進行)	(will|'ll|wo)_MD_(will|wo) (not|n't)_\S+ be_VB_be being_VBG_be \S+_V.N_\S+
+80-2    受動態(未来進行)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kwill_MD_will ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) be_VB_be being_VBG_be \S+_V.N_\S+ .*?\?_SENT_\?
+80-3    受動態(未来進行)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(wo_MD_wo n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|will_MD_will ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) be_VB_be being_VBG_be \S+_V.N_\S+ .*?\?_SENT_\?
+81  受動態(未来完了)	(will|'ll)_MD_will have_VH_have been_VBN_be \S+_V.N_\S+
+81-1    受動態(未来完了)	(will|'ll|wo)_MD_(will|wo) (not|n't)_\S+ have_VH_have been_VBN_be \S+_V.N_\S+
+81-2    受動態(未来完了)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kwill_MD_will ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) have_VH_have been_VBN_be \S+_V.N_\S+ .*?\?_SENT_\?
+81-3    受動態(未来完了)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(wo_MD_wo n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|will_MD_will ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) have_VH_have been_VBN_be \S+_V.N_\S+ .*?\?_SENT_\?
+82  受動態(助動詞)	\b(?!cannot)\S+_MD_\S+ be_VB_be \S+_V.N_\S+
+82-1    受動態(助動詞)	(\S+_MD_\S+ (not|n't)_\S+|cannot_MD_can) be_VB_be \S+_V.N_\S+
+82-2    受動態(助動詞)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K\S+_MD_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) be_VB_be \S+_V.N_\S+ .*?\?_SENT_\?
+82-3    受動態(助動詞)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K\S+_MD_\S+ (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) be_VB_be \S+_V.N_\S+ .*?\?_SENT_\?
+83  受動態(助動詞+進行)	\b(?!cannot)\S+_MD_\S+ be_VB_be being_VBG_be \S+_V.N_\S+
+83-1    受動態(助動詞+進行)	(\S+_MD_\S+ (not|n't)_\S+|cannot_MD_can) be_VB_be being_VBG_be \S+_V.N_\S+
+83-2    受動態(助動詞+進行)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K\S+_MD_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) be_VB_be being_VBG_be \S+_V.N_\S+ .*?\?_SENT_\?
+83-3    受動態(助動詞+進行)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K\S+_MD_\S+ (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) be_VB_be being_VBG_be \S+_V.N_\S+ .*?\?_SENT_\?
+84  受動態(助動詞+完了)	\b(?!cannot)\S+_MD_\S+ have_VH_have been_VBN_be \S+_V.N_\S+
+84-1    受動態(助動詞+完了)	(\S+_MD_\S+ (not|n't)_\S+|cannot_MD_can) have_VH_have been_VBN_be \S+_V.N_\S+
+84-2    受動態(助動詞+完了)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K\S+_MD_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) have_VH_have been_VBN_be \S+_V.N_\S+ .*?\?_SENT_\?
+84-3    受動態(助動詞+完了)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K\S+_MD_\S+ (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) have_VH_have been_VBN_be \S+_V.N_\S+ .*?\?_SENT_\?
+85  受動態(give/pass/send/show/teach/tellの間接目的語が主語)	(?<!_not )(?<!_n't )\b\S+_VB.?_be (given|passed|sent|shown|taught|told)_VVN_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)
+85-1    受動態(give/pass/send/show/teach/tellの間接目的語が主語)	\S+_VB.?_be (not|n't)_\S+ (given|passed|sent|shown|taught|told)_VVN_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)
+85-2    受動態(give/pass/send/show/teach/tellの間接目的語が主語)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K\S+_VB.?_be ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) (given|passed|sent|shown|taught|told)_VVN_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+).*?\?_SENT_\?
+85-3    受動態(give/pass/send/show/teach/tellの間接目的語が主語)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(\S+_VB.?_be n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|\S+_VB.?_be+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) (given|passed|sent|shown|taught|told)_VVN_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+).*?\?_SENT_\?
+86  受動態(give/pass/send/show/teach/tellの直接目的語が主語)	(?<!_not )(?<!_n't )\b\S+_VB.?_be (given|passed|sent|shown|taught|told)_VVN_\S+ to_TO_to ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)
+86-1    受動態(give/pass/send/show/teach/tellの直接目的語が主語)	\S+_VB.?_be (not|n't)_\S+ (given|passed|sent|shown|taught|told)_VVN_\S+ to_TO_to ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)
+86-2    受動態(give/pass/send/show/teach/tellの直接目的語が主語)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K\S+_VB.?_be ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) (given|passed|sent|shown|taught|told)_VVN_\S+ to_TO_to ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+).*?\?_SENT_\?
+86-3    受動態(give/pass/send/show/teach/tellの直接目的語が主語)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(\S+_VB.?_be n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|\S+_VB.?_be+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) (given|passed|sent|shown|taught|told)_VVN_\S+ to_TO_to ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+).*?\?_SENT_\?
+87  get+過去分詞	\S+_VV.?_get \S+_V.N_\S+
+88  to不定詞(to DO)	(?<!_not )to_TO_to \S+_V._\S+
+89  to不定詞の否定(not to DO)	\bnot_\S+ to_TO_to \S+_V._\S+
+90  完了のto不定詞	to_TO_to have_VH_have \S+_V.N_\S+
+91  受動態のto不定詞	to_TO_to be_VB_be \S+_V.N_\S+
+92  完了・受動態のto不定詞	to_TO_to have_VH_have been_VBN_be \S+_V.N_\S+
+93  意味上の主語を伴うto不定詞	for_IN_for ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) to_TO_to \S+_V._\S+
+94  -thing+to不定詞	\b((some|every|any|no)thing)_\S+_\1 to_TO_to \S+_V._\S+
+95  in order to DO	in_IN_in order_NN_order to_TO_to \S+_V._\S+
+96  in order not to DO	in_IN_in order_NN_order not_\S+ to_TO_to \S+_V._\S+
+97  so as to DO	so_RB_so as_RB_as to_TO_to \S+_V._\S+
+98  so as not to DO	so_RB_so as_RB_as not_\S+ to_TO_to \S+_V._\S+
+99  BE to DO	((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \K\S+_VB.?_be to_TO_to \S+_V._\S+
+99-1    BE not to DO	((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \K\S+_VB.?_be not_\S+ to_TO_to \S+_V._\S+
+100 BE about to DO	((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \K\S+_VB.?_be(?! not_)( \S+_RB.?_\S+)? about_RB_about to_TO_to \S+_V._\S+
+100-1   BE not about to DO	((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \K\S+_VB.?_be (not|n't)_\S+( \S+_RB.?_\S+)? about_RB_about to_TO_to \S+_V._\S+
+101 動詞+to不定詞	\S+_VV.?_\S+ to_TO_to \S+_V._\S+
+102 動詞+not+to不定詞	\S+_VV.?_\S+ not_\S+ to_TO_to \S+_V._\S+
+103 動詞+目的語+to不定詞	\S+_VV.?_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) to_TO_to \S+_V._\S+
+104 動詞+目的語+not+to不定詞	\S+_VV.?_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+ to_TO_to \S+_V._\S+
+105 動詞-ing形	(?<!_not )\b\S+_V.G_\S+
+106 not+動詞-ing形	\bnot_\S+ \S+_V.G_\S+
+107 having+過去分詞	having_VHG_have \S+_V.N_\S+
+108 being+過去分詞	being_VBG_be \S+_V.N_\S+
+109 having been+過去分詞	having_VHG_have been_VBN_be \S+_V.N_\S+
+110 前置詞+動詞-ing形	(?<preposition>aboard|about|above|across|after|against|along|alongside|amid|amidst|among|amongst|around|at|before|behind|below|beneath|beside|besides|between|beyond|by|despite|down|during|en|ere|except|for|from|in|inside|into|like|minus|near|nearer|nearest|notwithstanding|of|off|on|onto|opposite|out|outside|over|past|per|plus|re|reference|round|sans|save|since|than|through|throughout|till|toward|towards|under|underneath|unlike|until|up|upon|v\.|versus|via|vs\.|with|within|without|worth)_IN_\g{preposition} \S+_V.G_\S+
+111 意味上の主語(所有格代名詞)を伴う動名詞	(my|our|your|his|her|its|their)_PP\$_\1 \S+_V.G_\S+
+112 動詞+動詞-ing形	\S+_VV.?_\S+ \S+_V.G_\S+
+113 動詞+not+動詞-ing形	\S+_VV.?_\S+ not_\S+ \S+_V.G_\S+
+114 動詞+目的語+動詞-ing形	\S+_VV.?_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \S+_V.G_\S+
+115 動詞+目的語+not+動詞-ing形	\S+_VV.?_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+ \S+_V.G_\S+
+116 命令文(be動詞)	(^|\S+_(``|''|\(|:|LS)_\S+ )\K(you_PP_you )?be_VB_be( \S+_(?!SENT)[A-Z][ahtA-Z/$]+_\S+)*? [.!]_SENT_[.!]
+116-1   命令文(be動詞)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(never_RB_never|do_VVP_do (not|n't)_\S+) be_VB_be( \S+_(?!SENT)[A-Z][ahtA-Z/$]+_\S+)*? [.!]_SENT_[.!]
+117 肯定命令文(一般動詞)	(^|\S+_(``|''|\(|:|LS)_\S+ )\K((?!do_)\S+_VV_\S+( \S+_(?!SENT)[A-Z][ahtA-Z/$]+_\S+)*? [.!]_SENT_[.!]|(do|have)_VV_(do|have)(?! (not_|n't_|\S+_VV_|you_|we_|they_))( \S+_(?!SENT)[A-Z][ahtA-Z/$]+_\S+)*? [.!]_SENT_[.!])
+117-1   肯定命令文(一般動詞)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(never_RB_never|do_VVP?_do (not|n't)_\S+) \S+_V[HV]P?_\S+( \S+_(?!SENT)[A-Z][ahtA-Z/$]+_\S+)*? [.!]_SENT_[.!]
+118 doによる肯定命令文の強調	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kdo_VVP?_do \S+_V.P?_\S+( \S+_(?!SENT)[A-Z][ahtA-Z/$]+_\S+)*? [.!]_SENT_[.!]
+119 Please+肯定命令文	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kplease_\S+_please \S+_V.P?_\S+( \S+_(?!SENT)[A-Z][ahtA-Z/$]+_\S+)*? [.!]_SENT_[.!]
+119-1   Please+否定命令文	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kplease_\S+_please (never_RB_never|do_VVP?_do (not|n't)_\S+) \S+_V.P?_\S+( \S+_(?!SENT)[A-Z][ahtA-Z/$]+_\S+)*? [.!]_SENT_[.!]
+120 let's	\S+let 's_\S+(?= \S+_VV_\S+)
+120-1   let's not	\S+let 's_\S+ not_\S+(?= \S+_VV_\S+)
+121 助動詞類(be able to)	(?<!_not )(?<!_n't )\b\S+_VB.?_be able_JJ_able to_TO_to \S+_V._\S+
+121-1   助動詞類(be able to)	\S+_VB.?_be (not|n't)_\S+ able_JJ_able to_TO_to \S+_V._\S+
+121-2   助動詞類(be able to)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K\S+_VB.?_be ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) able_JJ_able to_TO_to \S+_V._\S+ .*?\?_SENT_\?
+121-3   助動詞類(be able to)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K\S+_VB.?_be (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) able_JJ_able to_TO_to \S+_V._\S+ .*?\?_SENT_\?
+122 助動詞類(be going to)	(?<!_not )(?<!_n't )\b\S+_VB.?_be (going_VVG_go to_TO_to|gonna_VVG_gonna) \S+_V._\S+
+122-1   助動詞類(be going to)	\S+_VB.?_be (not|n't)_\S+ (going_VVG_go to_TO_to|gonna_VVG_gonna) \S+_V._\S+
+122-2   助動詞類(be going to)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K\S+_VB.?_be ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) (going_VVG_go to_TO_to|gonna_VVG_gonna) \S+_V._\S+ .*?\?_SENT_\?
+122-3   助動詞類(be going to)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K\S+_VB.?_be (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) (going_VVG_go to_TO_to|gonna_VVG_gonna) \S+_V._\S+ .*?\?_SENT_\?
+123 助動詞類(can)	can_MD_can \S+_V._\S+
+123-1   助動詞類(can)	((can|ca)_MD_(can|ca) (not|n't)_\S+|cannot_MD_can) \S+_V._\S+
+123-2   助動詞類(can)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kcan_MD_can ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \S+_V._\S+ .*?\?_SENT_\?
+123-3   助動詞類(can)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(ca_MD_ca n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|can_MD_can ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) \S+_V._\S+ .*?\?_SENT_\?
+124 助動詞類(could)	could_MD_could \S+_V._\S+
+124-1   助動詞類(could)	could_MD_could (not|n't)_\S+ \S+_V._\S+
+124-2   助動詞類(could)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kcould_MD_could ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \S+_V._\S+ .*?\?_SENT_\?
+124-3   助動詞類(could)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kcould_MD_could (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) \S+_V._\S+ .*?\?_SENT_\?
+125 助動詞類(dare (to))	(?<!_not )(?<!_n't )(dare|dares|dared|daring)_VV.?_dare( to_TO_to)? \S+_V._\S+
+125-1   助動詞類(dare (to))	(\b(not|n't)_\S+ dare_VVP?_dare( to_TO_to)?|(dare|dares|dared|daring)_VV.?_dare not_\S+) \S+_V._\S+
+125-2   助動詞類(dare (to))	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K((do|does|did)_VV.?_do ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) dare_VV.?_dare( to_TO_to)?|dare_VVP?_dare ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)) \S+_V.P?_\S+ .*?\?_SENT_\?
+125-3   助動詞類(dare (to))	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K((do|does|did)_VV.?_do n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) dare_VV.?_dare( to_TO_to)?|(do|does|did)_VV.?_do ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+ dare_VV.?_dare( to_TO_to)?|dare_VVP?_dare n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|dare_VVP?_dare ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) \S+_V.P?_\S+ .*?\?_SENT_\?
+126 助動詞類(had better)	(had_VHD_have|'d'_VHD_have|'_POS_' d_NN_d) better_RBR_well \S+_V._\S+
+126-1   助動詞類(had better)	(had_VHD_have|'d'_VHD_have|'_POS_' d_NN_d) better_RBR_well not_\S+ \S+_V._\S+
+127 助動詞類(have to)	(?<!_not )(?<!_n't )\b\S+_VH.?_have to_TO_to \S+_V._\S+
+127-1   助動詞類(have to)	\b(not|n't)_\S+ have_VHP?_have to_TO_to \S+_V._\S+
+127-2   助動詞類(have to)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(do|does|did)_VV.?_do ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) have_VHP?_have to_TO_to \S+_V._\S+ .*?\?_SENT_\?
+127-3   助動詞類(have to)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(do|does|did)_VV.?_do (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) have_VHP?_have to_TO_to \S+_V._\S+ .*?\?_SENT_\?
+128 助動詞類((have) got to)	(?<!_not )(?<!_n't )\b(\S+_VH.?_have )?got_VVN_get to_TO_to \S+_V._\S+(?= .*?[.!]_SENT_[.!])
+128-1   助動詞類(have got to)	(\S+_VH.?_have )?(not|n't)_\S+ got_VVN_get to_TO_to \S+_V._\S+
+128-2   助動詞類(have got to)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(have|has|had)_VH._have ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) got_VVN_get to_TO_to \S+_V._\S+ .*?\?_SENT_\?
+128-3   助動詞類(have got to)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(have|has|had)_VH._have (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) got_VVN_get to_TO_to \S+_V._\S+ .*?\?_SENT_\?
+129 助動詞類(may)	may_MD_may \S+_V._\S+
+129-1   助動詞類(may)	may_MD_may (not|n't)_\S+ \S+_V._\S+
+129-2   助動詞類(may)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kmay_MD_may ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \S+_V._\S+ .*?\?_SENT_\?
+129-3   助動詞類(may)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kmay_MD_may (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) \S+_V._\S+ .*?\?_SENT_\?
+130 助動詞類(may as well)	may_MD_may as_RB_as well_RB_well \S+_V._\S+
+130-1   助動詞類(may as well)	may_MD_may as_RB_as well_RB_well not_\S+ \S+_V._\S+
+130-2   助動詞類(may as well)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kmay_MD_may ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) as_RB_as well_RB_well \S+_V._\S+ .*?\?_SENT_\?
+130-3   助動詞類(may as well)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kmay_MD_may ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) as_RB_as well_RB_well not_\S+ \S+_V._\S+ .*?\?_SENT_\?
+131 助動詞類(may well)	may_MD_may well_RB_well \S+_V._\S+
+131-1   助動詞類(may well)	may_MD_may well_RB_well not_\S+ \S+_V._\S+
+131-2   助動詞類(may well)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kmay_MD_may ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) well_RB_well \S+_V._\S+ .*?\?_SENT_\?
+131-3   助動詞類(may well)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kmay_MD_may ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) well_RB_well not_\S+ \S+_V._\S+ .*?\?_SENT_\?
+132 助動詞類(might)	might_MD_might \S+_V._\S+
+132-1   助動詞類(might)	might_MD_might (not|n't)_\S+ \S+_V._\S+
+132-2   助動詞類(might)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kmight_MD_might ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \S+_V._\S+ .*?\?_SENT_\?
+132-3   助動詞類(might)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kmight_MD_might (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) \S+_V._\S+ .*?\?_SENT_\?
+133 助動詞類(might as well)	might_MD_might as_RB_as well_RB_well \S+_V._\S+
+133-1   助動詞類(might as well)	might_MD_might as_RB_as well_RB_well not_\S+ \S+_V._\S+
+133-2   助動詞類(might as well)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kmight_MD_might ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) as_RB_as well_RB_well \S+_V._\S+ .*?\?_SENT_\?
+133-3   助動詞類(might as well)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kmight_MD_might ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) as_RB_as well_RB_well not_\S+ \S+_V._\S+ .*?\?_SENT_\?
+134 助動詞類(might well)	might_MD_might well_RB_well \S+_V._\S+
+134-1   助動詞類(might well)	might_MD_might well_RB_well not_\S+ \S+_V._\S+
+134-2   助動詞類(might well)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kmight_MD_might ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) well_RB_well \S+_V._\S+ .*?\?_SENT_\?
+134-3   助動詞類(might well)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kmight_MD_might ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) well_RB_well not_\S+ \S+_V._\S+ .*?\?_SENT_\?
+135 助動詞類(must)	must_MD_must \S+_V._\S+
+135-1   助動詞類(must)	must_MD_must (not|n't)_\S+ \S+_V._\S+
+135-2   助動詞類(must)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kmust_MD_must ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \S+_V._\S+ .*?\?_SENT_\?
+135-3   助動詞類(must)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kmust_MD_must (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) \S+_V._\S+ .*?\?_SENT_\?
+136 助動詞類(need (to))	(?<!_not )(?<!_n't )((need|needs|needed|needing)_VV.?_need to_TO_to|need_MD_need) \S+_V._\S+
+136-1   助動詞類(need (to))	(\b(not|n't)_\S+ need_VVP?_need to_TO_to|need_MD_need (not|n't)_\S+) \S+_V._\S+
+136-2   助動詞類(need (to))	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K((do|does|did)_VV.?_do ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) need_VVP?_need to_TO_to|need_MD_need ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)) \S+_V._\S+ .*?\?_SENT_\?
+136-3   助動詞類(need (to))	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K((do|does|did)_VV.?_do n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|(do|does|did)_VV.?_do ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+|need_MD_need n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|need_MD_need ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) \S+_V._\S+ .*?\?_SENT_\?
+137 助動詞類(ought to)	ought_MD_ought to_TO_to \S+_V._\S+
+137-1   助動詞類(ought to)	ought_MD_ought (not|n't)_\S+( to_TO_to)? \S+_V._\S+
+137-2   助動詞類(ought to)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kought_MD_ought ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)( to_TO_to)? \S+_V._\S+ .*?\?_SENT_\?
+137-3   助動詞類(ought to)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(ought_MD_ought n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|ought_MD_ought ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+)( to_TO_to)? \S+_V._\S+ .*?\?_SENT_\?
+138 助動詞類(shall)	shall_MD_shall \S+_V._\S+
+138-1   助動詞類(shall)	shall_MD_shall (not|n't)_\S+ \S+_V._\S+
+138-2   助動詞類(shall)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kshall_MD_shall ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \S+_V._\S+ .*?\?_SENT_\?
+138-3   助動詞類(shall)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(sha_\S+_sha n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|shall_MD_shall ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) \S+_V._\S+ .*?\?_SENT_\?
+139 助動詞類(should)	should_MD_should \S+_V._\S+
+139-1   助動詞類(should)	should_MD_should (not|n't)_\S+ \S+_V._\S+
+139-2   助動詞類(should)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kshould_MD_should ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \S+_V._\S+ .*?\?_SENT_\?
+139-3   助動詞類(should)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kshould_MD_should (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) \S+_V._\S+ .*?\?_SENT_\?
+140 助動詞類(used to)	(?<!_be )(?<!_not )(?<!_n't )used_VV[DN]_use to_TO_to \S+_V._\S+
+140-1   助動詞類(used to)	(used_VV[DN]_use (not|n't)_\S+|(?<!_be )(not|n't)_\S+ used?_VV[DN]?_use) to_TO_to \S+_V._\S+
+140-2   助動詞類(used to)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(used_VV[DN]_use ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|did_VVD_do ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) use_VVP?_use) to_TO_to \S+_V._\S+ .*?\?_SENT_\?
+140-3   助動詞類(used to)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(used_VV[DN]_use n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|used_VV[DN]_use ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+|did_VVD_do n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) use_VVP?_use|did_VVD_do ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+ use_VVP?_use) to_TO_to \S+_V._\S+ .*?\?_SENT_\?
+141 助動詞類(will)	(will|'ll)_MD_will \S+_V._\S+
+141-1   助動詞類(will)	(will|'ll|wo)_MD_(will|wo) (not|n't)_\S+ \S+_V._\S+
+141-2   助動詞類(will)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kwill_MD_will ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \S+_V._\S+ .*?\?_SENT_\?
+141-3   助動詞類(will)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(wo_MD_wo n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|will_MD_will ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) \S+_V._\S+ .*?\?_SENT_\?
+142 助動詞類(would)	(would|'d)_MD_(would|will) \S+_V._\S+
+142-1   助動詞類(would)	(would|'d)_MD_(would|will) (not|n't)_\S+ \S+_V._\S+
+142-2   助動詞類(would)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kwould_MD_would ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \S+_V._\S+ .*?\?_SENT_\?
+142-3   助動詞類(would)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kwould_MD_would (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) \S+_V._\S+ .*?\?_SENT_\?
+143 助動詞類(would rather)	(would|'d)_MD_(would|will) rather_RB_rather \S+_V._\S+
+143-1   助動詞類(would rather)	(would|'d)_MD_(would|will) rather_RB_rather (not|n't)_\S+ \S+_V._\S+
+143-2   助動詞類(would rather)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kwould_MD_would ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) rather_RB_rather \S+_V._\S+ .*?\?_SENT_\?
+143-3   助動詞類(would rather)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kwould_MD_would (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) rather_RB_rather|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) rather_RB_rather not_\S+) \S+_V._\S+ .*?\?_SENT_\?
+144 助動詞+進行	\b(?!cannot)\S+_MD_\S+ be_VB_be \S+_V.G_\S+
+144-1   助動詞+進行	(\S+_MD_\S+ (not|n't)_\S+|cannot_MD_can) be_VB_be \S+_V.G_\S+
+144-2   助動詞+進行	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K\S+_MD_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) be_VB_be \S+_V.G_\S+ .*?\?_SENT_\?
+144-3   助動詞+進行	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K\S+_MD_\S+ (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) be_VB_be \S+_V.G_\S+ .*?\?_SENT_\?
+145 助動詞+完了	\b(?!cannot)\S+_MD_\S+ have_VH_have \S+_V.N_\S+
+145-1   助動詞+完了	(\S+_MD_\S+ (not|n't)_\S+|cannot_MD_can) have_VH_have \S+_V.N_\S+
+145-2   助動詞+完了	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K\S+_MD_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) have_VH_have \S+_V.N_\S+ .*?\?_SENT_\?
+145-3   助動詞+完了	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K\S+_MD_\S+ (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) have_VH_have \S+_V.N_\S+ .*?\?_SENT_\?
+146 存在のThere(There+be)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kthere_EX_there \S+_VB.?_be(?! (not|n't)_)
+146-1   存在のThere(There+be)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kthere_EX_there \S+_VB.?_be (not|n't)_\S+
+146-2   存在のThere(There+be)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K\S+_VB.?_be there_(EX|RB)_there .+? \?_SENT_\?
+146-3   存在のThere(There+be)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K\S+_VB.?_be (n't_\S+ there_(EX|RB)_there|there_(EX|RB)_there not_\S+) .+? \?_SENT_\?
+147 存在のThere(完了)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kthere_EX_there \S+_VH.?_have been_VBN_be
+147-1   存在のThere(完了)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kthere_EX_there \S+_VH.?_have (not|n't)_\S+ been_VBN_be
+147-2   存在のThere(完了)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K\S+_VH.?_have there_(EX|RB)_there been_VBN_be .+? \?_SENT_\?
+147-3   存在のThere(完了)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K\S+_VH.?_have (n't_\S+ there_(EX|RB)_there|there_(EX|RB)_there not_\S+) been_VBN_be .+? \?_SENT_\?
+148 存在のThere(助動詞)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kthere_EX_there (?!cannot)\S+_MD_\S+ be_VB_be
+148-1   存在のThere(助動詞)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kthere_EX_there (\S+_MD_\S+ (not|n't)_\S+|cannot_MD_can) be_VB_be
+148-2   存在のThere(助動詞)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K\S+_MD_\S+ there_(EX|RB)_there be_VB_be .+? \?_SENT_\?
+148-3   存在のThere(助動詞)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K\S+_MD_\S+ (n't_\S+ there_(EX|RB)_there|there_(EX|RB)_there not_\S+) be_VB_be .+? \?_SENT_\?
+149 存在のHere(Here is/are)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Khere_RB_here (is|'s|are|'re)_VB[PZ]_be(?! (not|n't|to)_)
+150 等位接続詞	\S+_CC_\S+
+151 that節(同格)	the_DT_the facts?_NNS?_fact that_IN/that_that ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)
+152 that節(目的語)	\S+_VV.?_\S+ that_IN/that_that
+153 wh-節(目的語)(whether以外)	\S+_VV.?_(know|wonder) \S+_W..?_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)
+154 whether節	whether_IN_whether
+155 副詞節(when)	when_WRB_when(?=( \S+_(?!SENT)[A-Z][ahtA-Z/$]+_\S+)*? [.!]_SENT_[.!])
+156 副詞節(if)	if_IN_if
+157 副詞節(as)	as_IN_as(?= ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \S+(MD|V..?)_\S+)
+158 副詞節(as soon as)	as_(IN|RB)_as soon_RB_soon as_IN_as
+159 副詞節(by the time)	by_IN_by the_DT_the time_NN_time
+160 副詞節(so that)	so_\S+_so that_\S+_that(?! \S+_(MD|V..?)_\S+)
+161 従属節(as/if/that/when/whether以外の主な従属接続詞)	(after|albeit|although|because|before|despite|except|for|lest|like|once|since|so|than|though|till|unless|until|where|whereas|wheresoever|whether|while|whilst)_IN_\1(?= ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \S+_(MD|V..?)_\S+)
+162 従属接続詞thatの省略(hope/know/think)	\S+_VV.?_(hope|know|think) ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \S+_(MD|V.[DPZ]|RB.?)_\S+
+163 形式主語it+to不定詞	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kit_PP_it( (?!cannot)\S+_MD_\S+)? \S+_VB.?_be( (?!(not|n't)_)\S+_RB.?_\S+)? \S+_JJ.?_\S+( for_IN_for ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+))? to_TO_to \S+_V._\S+
+163-1   形式主語it+to不定詞	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kit_PP_it ((\S+_MD_\S+ (not|n't)_\S+|cannot_MD_can) be_VB_be|\S+_VB.?_\S+ (not|n't)_\S+)( \S+_RB.?_\S+)? \S+_JJ.?_\S+( for_IN_for ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+))? to_TO_to \S+_V._\S+
+163-2   形式主語it+to不定詞	(\S+_MD_\S+ it_PP_it be_VB_be|\S+_VB.?_\S+ it_PP_it)( (?!(not|n't)_)\S+_RB.?_\S+)? \S+_JJ.?_\S+( for_IN_for ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+))? to_TO_to \S+_V._\S+ .+? \?_SENT_\?
+163-3   形式主語it+to不定詞	(\S+_MD_\S+ n't_\S+ it_PP_it be_VB_be|\S+_MD_\S+ it_PP_it not_\S+ be_VB_be|\S+_VB.?_\S+ n't_\S+ it_PP_it|\S+_VB.?_\S+ it_PP_it not_\S+)( \S+_RB.?_\S+)? \S+_JJ.?_\S+( for_IN_for ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+))? to_TO_to \S+_V._\S+ .+? \?_SENT_\?
+164 形式目的語it+to不定詞	\S+_VV.?_\S+ it_PP_it( \S+_RB.?_\S+)? \S+_JJ.?_\S+( for_IN_for ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+))? to_TO_to \S+_V._\S+
+165 形式主語it+that節	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kit_PP_it( (?!cannot)\S+_MD_\S+)? \S+_VB.?_\S+\b( (?!(not|n't)_)\S+_RB.?_\S+)? \S+_JJ.?_\S+ that_IN/that_that
+165-1   形式主語it+that節	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kit_PP_it ((\S+_MD_\S+ (not|n't)_\S+|cannot_MD_can) be_VB_be|\S+_VB.?_\S+ (not|n't)_\S+)( \S+_RB.?_\S+)? \S+_JJ.?_\S+ that_IN/that_that
+165-2   形式主語it+that節	(\S+_MD_\S+ it_PP_it be_VB_be|\S+_VB.?_\S+ it_PP_it)( (?!(not|n't)_)\S+_RB.?_\S+)? \S+_JJ.?_\S+ that_IN/that_that .+? \?_SENT_\?
+165-3   形式主語it+that節	(\S+_MD_\S+ n't_\S+ it_PP_it be_VB_be|\S+_MD_\S+ it_PP_it not_\S+ be_VB_be|\S+_VB.?_\S+ n't_\S+ it_PP_it|\S+_VB.?_\S+ it_PP_it not_\S+)( \S+_RB.?_\S+)? \S+_JJ.?_\S+ that_IN/that_that .+? \?_SENT_\?
+166 形式目的語it+that節	\S+_VV.?_\S+ it_PP_it( \S+_RB.?_\S+)? \S+_JJ.?_\S+ that_IN/that_that
+167 疑問詞+to不定詞	(\S+_W..?_\S+|whether_IN_whether) to_TO_to \S+_V._\S+
+168 名詞を前置修飾する現在分詞	(?<!_be )(?<!_not )(?<!_n't )\b\S+_VVG_\S+ \S+_NNS?\S+
+169 名詞を後置修飾する現在分詞	\S+_NNS?_\S+ \S+_V.G_\S+
+170 名詞を前置修飾する過去分詞	(?<!_be )(?<!_not )(?<!_n't )(?<!_have )\b\S+_VVN_\S+ \S+_NNS?\S+
+171 名詞を後置修飾する過去分詞	\S+_NNS?_\S+ \S+_V.N_\S+
+172 関係代名詞(主格)(who)	\S+_NNS?_\S+ \Kwho_WP_who \S+_(MD|V.[DPZ]|RB.?)_\S+
+173 関係代名詞(主格)(which)	\S+_NNS?_\S+ \Kwhich_WDT_which \S+_(MD|V.[DPZ]|RB.?)_\S+
+174 関係代名詞(主格)(that)	\S+_NNS?_\S+ \Kthat_WDT_that \S+_(MD|V.[DPZ]|RB.?)_\S+
+175 関係代名詞(目的格)(who)	\S+_NNS?_\S+ \Kwho_WP_who ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)
+176 関係代名詞(目的格)(whom)	\S+_NNS?_\S+ \Kwhom_WP_whom ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)
+177 関係代名詞(目的格)(which)	\S+_NNS?_\S+ \Kwhich_WDT_which ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)
+178 関係代名詞(目的格)(that)	\S+_NNS?_\S+ \Kthat_WDT_that ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)
+179 関係代名詞(目的格)の省略	\S+_NNS?_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \S+_(MD|V.[DPZ]|RB.?)_\S+
+180 関係代名詞(所有格)	\S+_NNS?_\S+ whose_WP\$_whose
+181 関係代名詞(非制限用法)	\S+_NNS?_\S+ ,_,_, (who_WP_who|whom_WP_whom|which_WDT_which|whose_WP\$_whose)
+182 疑似関係代名詞(as)	as_(IN|RB)_as \S+_(MD|V.[DPZ])_\S+
+183 複合関係代名詞(what)	what_WP_what \S+_PP_\S+
+184 前置詞+関係代名詞	(?<preposition>aboard|about|above|across|after|against|along|alongside|amid|amidst|among|amongst|around|at|before|behind|below|beneath|beside|besides|between|beyond|by|despite|down|during|en|ere|except|for|from|in|inside|into|like|minus|near|nearer|nearest|notwithstanding|of|off|on|onto|opposite|out|outside|over|past|per|plus|re|reference|round|sans|save|since|than|through|throughout|till|toward|towards|under|underneath|unlike|until|up|upon|v\.|versus|via|vs\.|with|within|without|worth)_IN_\g{preposition} (who_WP_who|whom_WP_whom|which_WDT_which)
+185 関係副詞(先行詞あり)	\S+_NNS?_\S+ \S+_WRB_\S+
+186 関係副詞(先行詞なし)	(\S+_VB.?_be|(?<preposition>aboard|about|above|across|after|against|along|alongside|amid|amidst|among|amongst|around|at|before|behind|below|beneath|beside|besides|between|beyond|by|despite|down|during|en|ere|except|for|from|in|inside|into|like|minus|near|nearer|nearest|notwithstanding|of|off|on|onto|opposite|out|outside|over|past|per|plus|re|reference|round|sans|save|since|than|through|throughout|till|toward|towards|under|underneath|unlike|until|up|upon|v\.|versus|via|vs\.|with|within|without|worth)_IN_\g{preposition}) \S+_WRB_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)
+187 関係副詞(非制限用法)	,_,_, (when_WRB_when|where_WRB_where)(?= ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) .+? [.!]_SENT_[.!])
+188 wh-ever	\bwh[^_]+ever_\S+
+189 前置詞残留	(?<preposition>aboard|about|above|across|after|against|along|alongside|amid|amidst|among|amongst|around|at|before|behind|below|beneath|beside|besides|between|beyond|by|despite|down|during|en|ere|except|for|from|in|inside|into|like|minus|near|nearer|nearest|notwithstanding|of|off|on|onto|opposite|out|outside|over|past|per|plus|re|reference|round|sans|save|since|than|through|throughout|till|toward|towards|under|underneath|unlike|until|up|upon|v\.|versus|via|vs\.|with|within|without|worth)_IN_\g{preposition} [.!?]_SENT_[.!?]
+190 感嘆文(How+形容詞・副詞)	(^|\S+_(``|''|\(|,|:|LS)_\S+ )\Khow_WRB_how \S+_(JJ|RB)_\S+( \S+_(?!SENT)[A-Z][ahtA-Z/$]+_\S+)*? !_SENT_!
+191 感嘆文(How単体)	(^|\S+_(``|''|\(|,|:|LS)_\S+ )\Khow_WRB_how( \S+_(?!SENT)[A-Z][ahtA-Z/$]+_\S+)*? !_SENT_!
+192 感嘆文(What)	(^|\S+_(``|''|\(|,|:|LS)_\S+ )\Kwhat_(WP|WDT)_what( \S+_(?!SENT)[A-Z][ahtA-Z/$]+_\S+)*? !_SENT_!
+193 付加疑問(肯定文に続くもの)	,_,_, (\S+_(MD|V[BH][DPZ])_\S+|(do|does|did)_VV[DPZ]_do) n't_\S+ \S+_(PP|EX)_\S+ \?_SENT_\S+
+193-1   付加疑問(否定文に続くもの)	\b(not|n't|never)_\S+( \S+_(?!SENT)[A-Z][ahtA-Z/$]+_\S+)*? \K,_,_, (\S+_(MD|V[BH][DPZ])_\S+|(do|does|did)_VV[DPZ]_do) \S+_(PP|EX)_\S+ \?_SENT_\S+
+194 S+V	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)( (?!cannot)\S+_MD_\S+)? \S+_V[HV].?_\S+ \._SENT_\.
+194-1   S+V	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) (\S+_MD_\S+ (not|n't)_\S+|cannot_MD_can|(do|does|did)_VV[DPZ]_do (not|n't)_\S+) \S+_V[HV]P?_\S+ \._SENT_\.
+194-2   S+V	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(\S+_MD_\S+|(do|does|did)_VV[DPZ]_do) ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \S+_V[HV]P?_\S+ \?_SENT_\?
+194-3   S+V	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(\S+_MD_\S+|(do|does|did)_VV[DPZ]_do) (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) \S+_V[HV]P?_\S+ \?_SENT_\?
+195 S+V(become/feel/go/look/seem/sound)+C(形容詞)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)( (?!cannot)\S+_MD_\S+)? \S+_VV[DPZ]_(become|feel|go|look|seem|sound) (\S+_RB.?_\S+ )*\S+_JJ.?_\S+ \._SENT_\.
+195-1   S+V(become/feel/go/look/seem/sound)+C(形容詞)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) (\S+_MD_\S+ (not|n't)_\S+|cannot_MD_can|(do|does|did)_VV[DPZ]_do (not|n't)_\S+) (become|feel|go|look|seem|sound)_VVP?_(become|feel|go|look|seem|sound) (\S+_RB.?_\S+ )*\S+_JJ.?_\S+ \._SENT_\.
+195-2   S+V(become/feel/go/look/seem/sound)+C(形容詞)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(\S+_MD_\S+|(do|does|did)_VV[DPZ]_do) ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) (become|feel|go|look|seem|sound)_VVP?_(become|feel|go|look|seem|sound) (\S+_RB.?_\S+ )*\S+_JJ.?_\S+ \?_SENT_\?
+195-3   S+V(become/feel/go/look/seem/sound)+C(形容詞)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(\S+_MD_\S+|(do|does|did)_VV[DPZ]_do) (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) (become|feel|go|look|seem|sound)_VVP?_(become|feel|go|look|seem|sound) (\S+_RB.?_\S+ )*\S+_JJ.?_\S+ \?_SENT_\?
+196 S+V+O	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)( (?!cannot)\S+_MD_\S+)? \S+_V[HV].?_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \._SENT_\.
+196-1   S+V+O	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) (\S+_MD_\S+ (not|n't)_\S+|cannot_MD_can|(do|does|did)_VV[DPZ]_do (not|n't)_\S+) \S+_V[HV]P?_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \._SENT_\.
+196-2   S+V+O	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(\S+_MD_\S+|(do|does|did)_VV[DPZ]_do) ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \S+_V[HV]P?_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \?_SENT_\?
+196-3   S+V+O	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(\S+_MD_\S+|(do|does|did)_VV[DPZ]_do) (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) \S+_V[HV]P?_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \?_SENT_\?
+197 S+V(give/pass/send/show/teach/tell)+IO+DO	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)( (?!cannot)\S+_MD_\S+)? \S+_VV[DPZ]_(give|pass|send|show|teach|tell) ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) (\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+ \._SENT_\.
+197-1   S+V(give/pass/send/show/teach/tell)+IO+DO	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) (\S+_MD_\S+ (not|n't)_\S+|cannot_MD_can|(do|does|did)_VV[DPZ]_do (not|n't)_\S+) (give|pass|send|show|teach|tell)_VVP?_(give|pass|send|show|teach|tell) ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) (\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+ \._SENT_\.
+197-2   S+V(give/pass/send/show/teach/tell)+IO+DO	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(\S+_MD_\S+|(do|does|did)_VV[DPZ]_do) ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) (give|pass|send|show|teach|tell)_VVP?_(give|pass|send|show|teach|tell) ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) (\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+ \?_SENT_\?
+197-3   S+V(give/pass/send/show/teach/tell)+IO+DO	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(\S+_MD_\S+|(do|does|did)_VV[DPZ]_do) (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) (give|pass|send|show|teach|tell)_VVP?_(give|pass|send|show|teach|tell) ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) (\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+ \?_SENT_\?
+198 S+V(give/pass/send/show/teach/tell)+DO+to+IO	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)( (?!cannot)\S+_MD_\S+)? \S+_VV[DPZ]_(give|pass|send|show|teach|tell) ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) to_TO_to ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \._SENT_\.
+198-1   S+V(give/pass/send/show/teach/tell)+DO+to+IO	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) (\S+_MD_\S+ (not|n't)_\S+|cannot_MD_can|(do|does|did)_VV[DPZ]_do (not|n't)_\S+) (give|pass|send|show|teach|tell)_VVP?_(give|pass|send|show|teach|tell) ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) to_TO_to ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \._SENT_\.
+198-2   S+V(give/pass/send/show/teach/tell)+DO+to+IO	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(\S+_MD_\S+|(do|does|did)_VV[DPZ]_do) ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) (give|pass|send|show|teach|tell)_VVP?_(give|pass|send|show|teach|tell) ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) to_TO_to ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \?_SENT_\?
+198-3   S+V(give/pass/send/show/teach/tell)+DO+to+IO	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(\S+_MD_\S+|(do|does|did)_VV[DPZ]_do) (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) (give|pass|send|show|teach|tell)_VVP?_(give|pass|send|show|teach|tell) ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) to_TO_to ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \?_SENT_\?
+199 S+V(make)+O+C(形容詞)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)( (?!cannot)\S+_MD_\S+)? \S+_VV[DPZ]_make ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) (\S+_RB.?_\S+ )*\S+_JJ.?_\S+ \._SENT_\.
+199-1   S+V(make)+O+C(形容詞)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) (\S+_MD_\S+ (not|n't)_\S+|cannot_MD_can|(do|does|did)_VV[DPZ]_do (not|n't)_\S+) make_VVP?_make ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) (\S+_RB.?_\S+ )*\S+_JJ.?_\S+ \._SENT_\.
+199-2   S+V(make)+O+C(形容詞)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(\S+_MD_\S+|(do|does|did)_VV[DPZ]_do) ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) make_VVP?_make ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) (\S+_RB.?_\S+ )*\S+_JJ.?_\S+ \?_SENT_\?
+199-3   S+V(make)+O+C(形容詞)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(\S+_MD_\S+|(do|does|did)_VV[DPZ]_do) (n't_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)|((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+) make_VVP?_make ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) (\S+_RB.?_\S+ )*\S+_JJ.?_\S+ \?_SENT_\?
+200 間接話法(explain/report/say)	\S+_VV.?_(explain|report|say)( to_TO_to ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+))?( that_IN/that_that)? ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \S+_(MD|V..?)_\S+
+201 間接話法(tell)	\S+_VV.?_tell ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)( that_IN/that_that)? ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \S+_(MD|V..?)_\S+
+202 間接疑問(decide/explain/know/learn/see/understand/wonder)	\S+_VV[DPZ]?_(decide|explain|know|learn|see|understand|wonder) (if_IN_if|whether_IN_whether|which_WDT_which|what_(WDT|WP)_what|whose_WP\$_whose|who_WP_who|whom_WP_who|how_WRB_how|where_WRB_where|when_WRB_when|why_WRB_why)
+203 間接疑問(ask/remind/show/teach/tell)	\S+_VV[DPZ]?_(ask|remind|show|teach|tell) ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) (if_IN_if|whether_IN_whether|which_WDT_which|what_(WDT|WP)_what|whose_WP\$_whose|who_WP_who|whom_WP_who|how_WRB_how|where_WRB_where|when_WRB_when|why_WRB_why)
+204 強調構文(前置詞句・副詞強調)	it_PP_it( (?!cannot)\S+_MD_\S+)? \S+_VB[DPZ]?_be ((?<preposition>aboard|about|above|across|after|against|along|alongside|amid|amidst|among|amongst|around|at|before|behind|below|beneath|beside|besides|between|beyond|by|despite|down|during|en|ere|except|for|from|in|inside|into|like|minus|near|nearer|nearest|notwithstanding|of|off|on|onto|opposite|out|outside|over|past|per|plus|re|reference|round|sans|save|since|than|through|throughout|till|toward|towards|under|underneath|unlike|until|up|upon|v\.|versus|via|vs\.|with|within|without|worth)_IN_\g{preposition} ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+ |\S+_PP_\S+)|((?!(not|n't)_)\S+_RB.?_\S+ )+)that_IN/that_that
+204-1   強調構文(前置詞句・副詞強調)	it_PP_it (\S+_MD_\S+ (not|n't)_\S+ be_VB_be|cannot_MD_can be_VB_be|\S+_VB[DPZ]_be (not|n't)_\S+) ((?<preposition>aboard|about|above|across|after|against|along|alongside|amid|amidst|among|amongst|around|at|before|behind|below|beneath|beside|besides|between|beyond|by|despite|down|during|en|ere|except|for|from|in|inside|into|like|minus|near|nearer|nearest|notwithstanding|of|off|on|onto|opposite|out|outside|over|past|per|plus|re|reference|round|sans|save|since|than|through|throughout|till|toward|towards|under|underneath|unlike|until|up|upon|v\.|versus|via|vs\.|with|within|without|worth)_IN_\g{preposition} ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) |(\S+_RB.?_\S+ )+)that_IN/that_that
+204-2   強調構文(前置詞句・副詞強調)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(\S+_MD_\S+ it_PP_it be_VB_be|\S+_VB[DPZ]_be+ it_PP_it) ((?<preposition>aboard|about|above|across|after|against|along|alongside|amid|amidst|among|amongst|around|at|before|behind|below|beneath|beside|besides|between|beyond|by|despite|down|during|en|ere|except|for|from|in|inside|into|like|minus|near|nearer|nearest|notwithstanding|of|off|on|onto|opposite|out|outside|over|past|per|plus|re|reference|round|sans|save|since|than|through|throughout|till|toward|towards|under|underneath|unlike|until|up|upon|v\.|versus|via|vs\.|with|within|without|worth)_IN_\g{preposition} ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) |(?!(not|n't)_)(\S+_RB.?_\S+ )+)that_IN/that_that .+? \?_SENT_\?
+204-3   強調構文(前置詞句・副詞強調)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(\S+_MD_\S+ n't_\S+ it_PP_it be_VB_be|\S+_MD_\S+ it_PP_it not_\S+ be_VB_be|\S+_VB[DPZ]_\S+ n't_\S+ it_PP_it|\S+_VB[DPZ]_\S+ it_PP_it not_\S+) ((?<preposition>aboard|about|above|across|after|against|along|alongside|amid|amidst|among|amongst|around|at|before|behind|below|beneath|beside|besides|between|beyond|by|despite|down|during|en|ere|except|for|from|in|inside|into|like|minus|near|nearer|nearest|notwithstanding|of|off|on|onto|opposite|out|outside|over|past|per|plus|re|reference|round|sans|save|since|than|through|throughout|till|toward|towards|under|underneath|unlike|until|up|upon|v\.|versus|via|vs\.|with|within|without|worth)_IN_\g{preposition} ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) |(\S+_RB.?_\S+ )+)that_IN/that_that .+? \?_SENT_\?
+205 強調構文(whatを用いた疑似分裂文)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kwhat_(WDT|WP)_what( ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+))?( \S+_MD_\S+)? \S+_V..?_\S+( ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+))? \S+_VB.?_be ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)
+205-1   強調構文(whatを用いた疑似分裂文)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kwhat_(WDT|WP)_what( ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+))?( \S+_MD_\S+)? \S+_V..?_\S+( ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+))? \S+_VB.?_be (not|n't)_\S+ ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)
+206 使役構文(have/let/make)	\S+_VV.?_(have|let|make) ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \S+_V.P?_\S+
+207 have/get+目的語+過去分詞	(((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) ((\S+_MD_\S+|(do|does|did)_VV[DPZ]_do) ((not|n't)_\S+)?)?|to_TO_to )\K\S+_VV.?_(have|get) ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \S+_V.N_\S+
+208 get+目的語+現在分詞	\S+_VV.?_get ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \S+_V.G_\S+
+209 ask/get/tell+目的語+to+do	\S+_VV.?_(ask|tell) ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) to_TO_to \S+_V._\S+
+210 知覚構文(原形不定詞)	\S+_VV.?_(feel|hear|see) ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \S+_V._\S+
+211 知覚構文(現在分詞)	\S+_VV.?_(feel|hear|see) ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \S+_V.G_\S+
+212 知覚構文(過去分詞)	\S+_VV.?_(feel|hear|see) ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \S+_V.N_\S+
+213 分詞構文(現在分詞・文頭)	(^|\S+_(``|''|\(|:|LS)_\S+ )\K\S+_V.G_\S+( \S+_(?!SENT)[A-Z][ahtA-Z/$]+_\S+){1,10} ,_,_,
+213-1   分詞構文(現在分詞・文頭)	(^|\S+_(``|''|\(|:|LS)_\S+ )\Knot_\S+ \S+_V.G_\S+( \S+_(?!SENT)[A-Z][ahtA-Z/$]+_\S+){1,10} ,_,_,
+214 分詞構文(過去分詞・文頭)	(^|\S+_(``|''|\(|:|LS)_\S+ )\K\S+_V.N_\S+( \S+_(?!SENT)[A-Z][ahtA-Z/$]+_\S+){1,10} ,_,_,
+214-1   分詞構文(過去分詞・文頭)	(^|\S+_(``|''|\(|:|LS)_\S+ )\Knot_\S+ \S+_V.N_\S+( \S+_(?!SENT)[A-Z][ahtA-Z/$]+_\S+){1,10} ,_,_,
+215 仮定法過去(if節内動詞が過去)	(^|\S+_(?!V)\S+_\S+ )\Kif_IN_if ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \S+_V.D_\S+\b(?! (\S+_V.N_|(not|n't)_))
+215-1   仮定法過去(if節内動詞が過去)	(^|\S+_(?!V)\S+_\S+ )\Kif_IN_if ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) ((was|were)_VBD_be (not|n't)_\S+|did_VVD_do (not|n't)_\S+ \S+_V[HV]P?_\S+)
+216 仮定法過去完了(if節内動詞が過去完了)	(^|\S+_(?!V)\S+_\S+ )\Kif_IN_if ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) had_VHD_have \S+_V.N_\S+
+216-1   仮定法過去完了(if節内動詞が過去完了)	(^|\S+_(?!V)\S+_\S+ )\Kif_IN_if ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) had_VHD_have (not|n't)_\S+ \S+_V.N_\S+
+217 仮定法現在(that節内動詞が原形不定詞)	\S+_VV.?_(demand|insist|order|propose|recommend|require|suggest)( that_IN/that_that)? ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \S+_V.P?_\S+
+217-1   仮定法現在(that節内動詞が原形不定詞)	\S+_VV.?_(demand|insist|order|propose|recommend|require|suggest)( that_IN/that_that)? ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) not_\S+ \S+_V.P?_\S+
+218 wish+仮定法過去	\S+_VV.?_wish ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) (\S+_V.D_\S+\b(?! (\S+_V.N_|(not|n't)_))|(was|were)_VBD_be (not|n't)_\S+|did_VVD_do (not|n't)_\S+ \S+_V[HV]P?_\S+)
+219 wish+仮定法過去完了	\S+_VV.?_wish ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) had_VHD_have( (not|n't)_\S+)? \S+_V.N_\S+
+220 as if/though+仮定法過去	as_(RB|IN)_as if_IN_if ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) (\S+_V.D_\S+\b(?! (\S+_V.N_|(not|n't)_))|(was|were)_VBD_be (not|n't)_\S+|did_VVD_do (not|n't)_\S+ \S+_V[HV]P?_\S+)
+221 as if/though+仮定法過去完了	as_(RB|IN)_as if_IN_if ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) had_VHD_have( (not|n't)_\S+)? \S+_V.N_\S+
+222 if only+仮定法過去	if_IN_if only_RB_only ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) (\S+_V.D_\S+\b(?! (\S+_V.N_|(not|n't)_))|(was|were)_VBD_be (not|n't)_\S+|did_VVD_do (not|n't)_\S+ \S+_V[HV]P?_\S+)
+223 if only+仮定法過去完了	if_IN_if only_RB_only ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) had_VHD_have( (not|n't)_\S+)? \S+_V.N_\S+
+224 if節内のshould	(^|\S+_(?!V)\S+_\S+ )\Kif_IN_if ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) should_MD_should \S+_V._\S+
+225 倒置による仮定法過去	(^|\S+_(``|''|\(|:|LS)_\S+ )\Kwere_VBD_be ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)( (not|n't)_\S+)?( \S+_(?!SENT)[A-Z][ahtA-Z/$]+_\S+)+? ,_,_,( \S+_(?!SENT)[A-Z][ahtA-Z/$]+_\S+)+? \._SENT_\.
+226 倒置による仮定法過去完了	(^|\S+_(``|''|\(|:|LS)_\S+ )\Khad_VHD_have ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)( (not|n't)_\S+)? \S+_V.N_\S+( \S+_(?!SENT)[A-Z][ahtA-Z/$]+_\S+)+? ,_,_,( \S+_(?!SENT)[A-Z][ahtA-Z/$]+_\S+)+? \._SENT_\.
+227 shouldを用いた倒置による仮定	(^|\S+_(``|''|\(|:|LS)_\S+ )\Kshould_MD_should ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+)( (not|n't)_\S+)? \S+_V.P?_\S+( \S+_(?!SENT)[A-Z][ahtA-Z/$]+_\S+)+? ,_,_,( \S+_(?!SENT)[A-Z][ahtA-Z/$]+_\S+)+? \._SENT_\.
+228 if it were/was not for ...	if_IN_if it_PP_it (were|was)_VBD_be (not|n't)_\S+ for_IN_for
+229 were it not for ...	were_VBD_be it_PP_it not_\S+ for_IN_for
+230 if it hadn't been for ...	if_IN_if it_PP_it had_VHD_have (not|n't)_\S+ been_VBN_be for_IN_for
+231 had it not been for ...	had_VHD_have it_PP_it not_\S+ been_VBN_be for_IN_for
+232 倒置(So+be/have/do/助動詞+人称代名詞)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kso_RB_so (\S+_VB[DPZ]_be|\S+_VH[DPZ]_have|(do|does|did)_VV[DPZ]_do|\S+_MD_\S+) ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \._SENT_\.
+233 倒置(Neither/nor+be/have/do/助動詞+人称代名詞)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(neither|nor)_\S+ (\S+_VB[DPZ]_be|\S+_VH[DPZ]_have|(do|does|did)_VV[DPZ]_do|\S+_MD_\S+) ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) \._SENT_\.
+234 倒置(Hardly/Little/Never/No sooner/Scarcely/Seldom ....)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(never_RB_never|no_DT_no sooner_RBR_sooner|hardly_RB_hardly|little_(RB|NP)_little|scarcely_RB_scarcely|seldom_RB_seldom) (\S+_VB[DPZ]_be|\S+_VH[DPZ]_have|(do|does|did)_VV[DPZ]_do|\S+_MD_\S+) ((\S+_(DT|PDT|CD|PP$|RB.?|JJ.?)_\S+ )*\S+_N..?_\S+|\S+_PP_\S+) .+?\._SENT_\.
+235 疑問詞疑問文(Why ...?)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kwhy_WRB_why .+? \?_SENT_\S
+236 疑問詞疑問文(When ...?)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kwhen_WRB_when .+? \?_SENT_\S
+237 疑問詞疑問文(Who ...?)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kwho_WP_who .+? \?_SENT_\S
+238 疑問詞疑問文(Whom ...?)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kwhom_WP_whom .+? \?_SENT_\S
+239 疑問詞疑問文(What ...?)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kwhat_WP_what .+? \?_SENT_\S
+240 疑問詞疑問文(What+名詞 ...?)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kwhat_WDT_what \S+_NNS?_\S+ .+? \?_SENT_\S
+241 疑問詞疑問文(Which ...?)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kwhich_WDT_which (?!\S+_NNS?).+? \?_SENT_\S
+242 疑問詞疑問文(Which+名詞 ...?)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kwhich_WDT_which \S+_NNS?_\S+ .+? \?_SENT_\S
+243 疑問詞疑問文(Whose ...?)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kwhose_WP\$_whose (?!\S+_NNS?).+? \?_SENT_\S
+244 疑問詞疑問文(Whose+名詞 ...?)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kwhose_WP\$_whose \S+_NNS?_\S+ .+? \?_SENT_\S
+245 疑問詞疑問文(Where ...?)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kwhere_WRB_where .+? \?_SENT_\S
+246 疑問詞疑問文(How ...?)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Khow_WRB_how (?!\S+_(JJR?|RBR?)).+? \?_SENT_\S
+247 疑問詞疑問文(How 形容詞/副詞 ...?)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Khow_WRB_how \S+_(JJR?|RBR?)_\S+ .+? \?_SENT_\S
+248 疑問詞疑問文(前置詞+疑問詞 ...?)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\K(?<preposition>aboard|about|above|across|after|against|along|alongside|amid|amidst|among|amongst|around|at|before|behind|below|beneath|beside|besides|between|beyond|by|despite|down|during|en|ere|except|for|from|in|inside|into|like|minus|near|nearer|nearest|notwithstanding|of|off|on|onto|opposite|out|outside|over|past|per|plus|re|reference|round|sans|save|since|than|through|throughout|till|toward|towards|under|underneath|unlike|until|up|upon|v\.|versus|via|vs\.|with|within|without|worth)_IN_\g{preposition} (what|which|whom|whose)_(WDT|WP|WP\$)_(what|which|whom|whose) .+? \?_SENT_\S
+249 機能疑問文(Can you ...?)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kcan_MD_can you_PP_you .+?\?_SENT_\?
+249-1   機能疑問文(Can't you ...?)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kca_MD_ca n't_\S+ you_PP_you .+?\?_SENT_\?
+250 機能疑問文(Could you ...?)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kcould_MD_could you_PP_you .+?\?_SENT_\?
+250-1   機能疑問文(Couldn't you ...?)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kcould_MD_could n't_\S+ you_PP_you .+?\?_SENT_\?
+251 機能疑問文(Will you ...?)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kwill_MD_will you_PP_you .+?\?_SENT_\?
+251-1   機能疑問文(Wont' you ...?)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kwo_MD_wo n't_\S+ you_PP_you .+?\?_SENT_\?
+252 機能疑問文(Would you ...?)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\would_MD_would you_PP_you .+?\?_SENT_\?
+252-1   機能疑問文(Wouldn't you ...?)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kwould_MD_would n't_\S+ you_PP_you .+?\?_SENT_\?
+253 機能疑問文(Can I ...?)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kcan_MD_can I_PP_I .+?\?_SENT_\?
+254 機能疑問文(Could I ...?)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kcould_MD_could I_PP_I .+?\?_SENT_\?
+255 機能疑問文(May I ...?)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kmay_MD_may I_PP_I .+?\?_SENT_\?
+256 機能疑問文(Shall I ...?)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kshall_MD_shall I_PP_I .+?\?_SENT_\?
+257 機能疑問文(Shall we ...?)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kshall_MD_shall we_PP_we .+?\?_SENT_\?
+258 機能疑問文(Should I ...?)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kshould_MD_should I_PP_I .+?\?_SENT_\?
+259 機能疑問文(Why don't you ...?)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kwhy_WRB_why do_VVP_do n't_\S+ you_PP_you .+? \?_SENT_\S
+260 機能疑問文(Why don't we ...?)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kwhy_WRB_why do_VVP_do n't_\S+ we_PP_we .+? \?_SENT_\S
+261 機能疑問文(Why not ...?)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kwhy_WRB_why not_\S+ .+? \?_SENT_\S
+262 機能疑問文(How about ...?)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Khow_WRB_how about_(IN|RB)_about .+? \?_SENT_\S
+263 機能疑問文(What about ...?)	(^|\S+_(``|''|\(|,|:|LS|CC|IN(/that)?)_\S+ )\Kwhat_WP_what about_(IN|RB)_about .+? \?_SENT_\S
