@@ -96,7 +96,7 @@ grmlist = []
 num_grm_dic = {}
 num_list_dic = {}
 with open('{cfp}dat{sep}grmitem.txt'.format(sep=os.sep, cfp=cfp), 'r') as f:
-    for num, i in enumerate(f):
+    for num, i in enumerate(f, 1):
         grmlist.append(i.rstrip().split('\t')[1])
         num_grm_dic[num] = i.rstrip().split('\t')[1]
         num_list_dic[num] = i.rstrip().split('\t')[0]
