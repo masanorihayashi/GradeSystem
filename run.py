@@ -8,20 +8,18 @@ import argparse
 import numpy as np
 from sklearn.externals import joblib
 
-import mord
+# import mord
 import treetaggerwrapper
 
-
-import nltk
 from nltk.tokenize import sent_tokenize
 from collections import Counter
 from collections import OrderedDict
-from sklearn.externals import joblib
 
-a1 = "dat{sep}a1.word".format(sep=os.sep)
-a2 = "dat{sep}a2.word".format(sep=os.sep)
-b1 = "dat{sep}b1.word".format(sep=os.sep)
-fun = "dat{sep}func.word".format(sep=os.sep)
+cfp = os.path.dirname(os.path.abspath(__file__)) + os.sep
+a1 = "{cfp}dat{sep}a1.word".format(sep=os.sep, cfp=cfp)
+a2 = "{cfp}dat{sep}a2.word".format(sep=os.sep, cfp=cfp)
+b1 = "{cfp}dat{sep}b1.word".format(sep=os.sep, cfp=cfp)
+fun = "{cfp}dat{sep}func.word".format(sep=os.sep, cfp=cfp)
 
 a1_words = []
 a2_words = []
@@ -97,7 +95,7 @@ class Surface:
 grmlist = []
 num_grm_dic = {}
 num_list_dic = {}
-with open('dat{sep}grmitem.txt'.format(sep=os.sep), 'r') as f:
+with open('{cfp}dat{sep}grmitem.txt'.format(sep=os.sep, cfp=cfp), 'r') as f:
     for num, i in enumerate(f):
         grmlist.append(i.rstrip().split('\t')[1])
         num_grm_dic[num] = i.rstrip().split('\t')[1]
@@ -106,7 +104,10 @@ with open('dat{sep}grmitem.txt'.format(sep=os.sep), 'r') as f:
 class GrmItem:
     def __init__(self, text):
 #         tagger = treetaggerwrapper.TreeTagger(TAGLANG='en',TAGDIR='/home/lr/hayashi/ra_web_app')
-        tagger = treetaggerwrapper.TreeTagger(TAGLANG='en', TAGDIR='.{sep}resource{sep}TreeTagger'.format(sep=os.sep))
+        tagger = treetaggerwrapper.TreeTagger(
+            TAGLANG='en', 
+            TAGDIR='{cfp}{sep}resource{sep}TreeTagger'.format(sep=os.sep,
+                                                              cfp=cfp))
         self.text = text
         #小文字にすると拾えない
         self.sentences = sent_tokenize(self.text)
@@ -175,9 +176,9 @@ class Feature:
         self.stats = stats
         self.word_dic = {}
         self.pos_dic = {}
-        for line in open("dat{sep}word.dat".format(sep=os.sep), "r"):
+        for line in open("{cfp}dat{sep}word.dat".format(sep=os.sep, cfp=cfp), "r"):
             self.word_dic[line.split('\t')[1]] = line.split('\t')[0]
-        for line in open("dat{sep}pos.dat".format(sep=os.sep), "r"):
+        for line in open("{cfp}dat{sep}pos.dat".format(sep=os.sep, cfp=cfp), "r"):
             self.pos_dic[line.split('\t')[1]]  = line.split('\t')[0]
 
     def ngram2vec(self):
@@ -228,25 +229,23 @@ def output(grade, stats, word_diff, grmitem):
 
     return output_dic
 
-def main():
-
-    data = ''
-    with open(args.input,'r') as f:
-        for i in f:
-            data += i.rstrip() + ' '
-
-    surface = Surface(unicode(data))
-    ngram, stats, diff = surface.features()
-    grmitem = GrmItem(unicode(data))
-    grm, pos_ngram, use_list = grmitem.features()
-    inputs = Feature(ngram=ngram, pos_ngram=pos_ngram, grmitem=grm, word_difficulty=diff, stats=stats).concat()
-    clf = mord.LogisticAT(alpha=0.01)
-    clf = joblib.load(".{sep}model{sep}train.pkl".format(sep=os.sep))
-    grade = clf.predict(inputs)
-    print(output(grade, stats,  diff, use_list))
-
-
 if __name__ == "__main__":
+    def main():    
+        data = ''
+        with open(args.input,'r') as f:
+            for i in f:
+                data += i.rstrip() + ' '
+    
+        surface = Surface(unicode(data))
+        ngram, stats, diff = surface.features()
+        grmitem = GrmItem(unicode(data))
+        grm, pos_ngram, use_list = grmitem.features()
+        inputs = Feature(ngram=ngram, pos_ngram=pos_ngram, grmitem=grm, word_difficulty=diff, stats=stats).concat()
+    #     clf = mord.LogisticAT(alpha=0.01)
+        clf = joblib.load(".{sep}model{sep}train.pkl".format(sep=os.sep))
+        grade = clf.predict(inputs)
+        print(output(grade, stats,  diff, use_list))
+
     parser = argparse.ArgumentParser()
     parser.add_argument('-i', '--input', help='input data')
     args = parser.parse_args()
