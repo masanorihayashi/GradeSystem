@@ -21,15 +21,17 @@ from sklearn.externals import joblib
 a1 = "dat/a1.word"
 a2 = "dat/a2.word"
 b1 = "dat/b1.word"
+b2 = "dat/b2.word"
 fun = "dat/func.word"
 
 a1_words = []
 a2_words = []
 b1_words = []
+b2_words = []
 fun_words = []
 diff_words = []
 
-with open(a1) as fa1, open(a2) as fa2, open(b1) as fb1, open(fun) as ffn:
+with open(a1) as fa1, open(a2) as fa2, open(b1) as fb1, open(b2) as fb2, open(fun) as ffn:
     for a1w in fa1:
         a1_words.append(a1w.lower().split()[0])
         diff_words.append(a1w.lower().split()[0])
@@ -39,6 +41,9 @@ with open(a1) as fa1, open(a2) as fa2, open(b1) as fb1, open(fun) as ffn:
     for b1w in fb1:
         b1_words.append(b1w.lower().split()[0])
         diff_words.append(b1w.lower().split()[0])
+    for b2w in fb2:
+        b2_words.append(b2w.lower().split()[0])
+        diff_words.append(b2w.lower().split()[0])
     for funw in ffn:
         fun_words.append(funw.lower().split()[0])
         diff_words.append(funw.lower().split()[0])
@@ -81,9 +86,10 @@ class Surface:
         a1_ratio = len(self.word_types & set(a1_words))/ float(self.total_words)
         a2_ratio = len(self.word_types & set(a2_words))/ float(self.total_words)
         b1_ratio = len(self.word_types & set(b1_words))/ float(self.total_words)
+        b2_ratio = len(self.word_types & set(b2_words))/ float(self.total_words)
         fun_ratio = len(self.word_types & set(fun_words))/ float(self.total_words)
 
-        return [a1_ratio, a2_ratio, b1_ratio, fun_ratio]
+        return [a1_ratio, a2_ratio, b1_ratio, b2_ratio, fun_ratio]
 
     def features(self):
         ngrams = self.ngram()
@@ -209,7 +215,7 @@ class Feature:
 
     def concat(self):
         ngrams = self.ngram2vec()
-        vec_size =   4 + int(501) + len(self.pos_dic) + len(self.word_dic)
+        vec_size =   5 + int(501) + len(self.pos_dic) + len(self.word_dic)
         inputs = np.zeros([1, vec_size])
 
         for k, v in ngrams.items():
