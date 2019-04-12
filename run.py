@@ -162,13 +162,17 @@ class GrmItem:
         return Counter(all_pos_ngrams)
 
     def features(self):
+        grm_freq = {}
         grmitem, use_list = self.detect(grmlist, num_list_dic)
         pos_ngram = self.pos_ngram()
         for k, v in grmitem.items():
             if v == 0:
                 del(grmitem[k])
 
-        return grmitem, pos_ngram, use_list
+        for k, v in grmitem.items():
+            grm_freq[num_list_dic[k]] = v
+
+        return grmitem, pos_ngram, grm_freq
 
 
 class Feature:
@@ -210,7 +214,6 @@ class Feature:
             #501 is length of grm item
             fdic[number + int(501) + len(self.pos_dic) + len(self.word_dic)] = feature
 
-
         return fdic
 
     def concat(self):
@@ -229,7 +232,7 @@ def output(grade, stats, word_diff, grmitem):
     output_dic['grade'] = grade_class[grade[0]]
     output_dic['stats'] = stats
     output_dic['word_diff'] = word_diff
-    output_dic['grmitem'] = grmitem
+    output_dic['grmitem'] = sorted(grmitem.items(), key=lambda x: x[1], reverse=True)
 
     return output_dic
 
@@ -243,12 +246,12 @@ def main():
     surface = Surface(unicode(data))
     ngram, stats, diff = surface.features()
     grmitem = GrmItem(unicode(data))
-    grm, pos_ngram, use_list = grmitem.features()
+    grm, pos_ngram, grm_freq = grmitem.features()
     inputs = Feature(ngram=ngram, pos_ngram=pos_ngram, grmitem=grm, word_difficulty=diff, stats=stats).concat()
     clf = mord.LogisticAT(alpha=0.01)
     clf = joblib.load("./model/train.pkl")
     grade = clf.predict(inputs)
-    print(output(grade, stats,  diff, use_list))
+    print(output(grade, stats, diff, grm_freq))
 
 
 if __name__ == "__main__":
