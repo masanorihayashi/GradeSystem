@@ -8,26 +8,31 @@ import argparse
 import numpy as np
 from sklearn.externals import joblib
 
-# import mord
+import mord
 import treetaggerwrapper
 
+
+import nltk
 from nltk.tokenize import sent_tokenize
 from collections import Counter
 from collections import OrderedDict
+from sklearn.externals import joblib
 
 cfp = os.path.dirname(os.path.abspath(__file__)) + os.sep
 a1 = "{cfp}dat{sep}a1.word".format(sep=os.sep, cfp=cfp)
 a2 = "{cfp}dat{sep}a2.word".format(sep=os.sep, cfp=cfp)
 b1 = "{cfp}dat{sep}b1.word".format(sep=os.sep, cfp=cfp)
+b2 = "dat/b2.word"
 fun = "{cfp}dat{sep}func.word".format(sep=os.sep, cfp=cfp)
 
 a1_words = []
 a2_words = []
 b1_words = []
+b2_words = []
 fun_words = []
 diff_words = []
 
-with open(a1) as fa1, open(a2) as fa2, open(b1) as fb1, open(fun) as ffn:
+with open(a1) as fa1, open(a2) as fa2, open(b1) as fb1, open(b2) as fb2, open(fun) as ffn:
     for a1w in fa1:
         a1_words.append(a1w.lower().split()[0])
         diff_words.append(a1w.lower().split()[0])
@@ -37,6 +42,9 @@ with open(a1) as fa1, open(a2) as fa2, open(b1) as fb1, open(fun) as ffn:
     for b1w in fb1:
         b1_words.append(b1w.lower().split()[0])
         diff_words.append(b1w.lower().split()[0])
+    for b2w in fb2:
+        b2_words.append(b2w.lower().split()[0])
+        diff_words.append(b2w.lower().split()[0])
     for funw in ffn:
         fun_words.append(funw.lower().split()[0])
         diff_words.append(funw.lower().split()[0])
@@ -79,9 +87,10 @@ class Surface:
         a1_ratio = len(self.word_types & set(a1_words))/ float(self.total_words)
         a2_ratio = len(self.word_types & set(a2_words))/ float(self.total_words)
         b1_ratio = len(self.word_types & set(b1_words))/ float(self.total_words)
+        b2_ratio = len(self.word_types & set(b2_words))/ float(self.total_words)
         fun_ratio = len(self.word_types & set(fun_words))/ float(self.total_words)
 
-        return [a1_ratio, a2_ratio, b1_ratio, fun_ratio]
+        return [a1_ratio, a2_ratio, b1_ratio, b2_ratio, fun_ratio]
 
     def features(self):
         ngrams = self.ngram()
@@ -158,13 +167,17 @@ class GrmItem:
         return Counter(all_pos_ngrams)
 
     def features(self):
+        grm_freq = {}
         grmitem, use_list = self.detect(grmlist, num_list_dic)
         pos_ngram = self.pos_ngram()
         for k, v in grmitem.items():
             if v == 0:
                 del(grmitem[k])
 
-        return grmitem, pos_ngram, use_list
+        for k, v in grmitem.items():
+            grm_freq[num_list_dic[k]] = v
+
+        return grmitem, pos_ngram, grm_freq
 
 
 class Feature:
@@ -206,12 +219,11 @@ class Feature:
             #501 is length of grm item
             fdic[number + int(501) + len(self.pos_dic) + len(self.word_dic)] = feature
 
-
         return fdic
 
     def concat(self):
         ngrams = self.ngram2vec()
-        vec_size =   4 + int(501) + len(self.pos_dic) + len(self.word_dic)
+        vec_size =   5 + int(501) + len(self.pos_dic) + len(self.word_dic)
         inputs = np.zeros([1, vec_size])
 
         for k, v in ngrams.items():
@@ -225,27 +237,29 @@ def output(grade, stats, word_diff, grmitem):
     output_dic['grade'] = grade_class[grade[0]]
     output_dic['stats'] = stats
     output_dic['word_diff'] = word_diff
-    output_dic['grmitem'] = grmitem
+    output_dic['grmitem'] = sorted(grmitem.items(), key=lambda x: x[1], reverse=True)
 
     return output_dic
 
-if __name__ == "__main__":
-    def main():    
-        data = ''
-        with open(args.input,'r') as f:
-            for i in f:
-                data += i.rstrip() + ' '
-    
-        surface = Surface(unicode(data))
-        ngram, stats, diff = surface.features()
-        grmitem = GrmItem(unicode(data))
-        grm, pos_ngram, use_list = grmitem.features()
-        inputs = Feature(ngram=ngram, pos_ngram=pos_ngram, grmitem=grm, word_difficulty=diff, stats=stats).concat()
-    #     clf = mord.LogisticAT(alpha=0.01)
-        clf = joblib.load(".{sep}model{sep}train.pkl".format(sep=os.sep))
-        grade = clf.predict(inputs)
-        print(output(grade, stats,  diff, use_list))
+def main():
 
+    data = ''
+    with open(args.input,'r') as f:
+        for i in f:
+            data += i.rstrip() + ' '
+
+    surface = Surface(unicode(data))
+    ngram, stats, diff = surface.features()
+    grmitem = GrmItem(unicode(data))
+    grm, pos_ngram, grm_freq = grmitem.features()
+    inputs = Feature(ngram=ngram, pos_ngram=pos_ngram, grmitem=grm, word_difficulty=diff, stats=stats).concat()
+    clf = mord.LogisticAT(alpha=0.01)
+    clf = joblib.load("./model/train.pkl")
+    grade = clf.predict(inputs)
+    print(output(grade, stats, diff, grm_freq))
+
+
+if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('-i', '--input', help='input data')
     args = parser.parse_args()
