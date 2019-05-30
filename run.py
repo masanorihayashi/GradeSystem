@@ -22,7 +22,7 @@ cfp = os.path.dirname(os.path.abspath(__file__)) + os.sep
 a1 = "{cfp}dat{sep}a1.word".format(sep=os.sep, cfp=cfp)
 a2 = "{cfp}dat{sep}a2.word".format(sep=os.sep, cfp=cfp)
 b1 = "{cfp}dat{sep}b1.word".format(sep=os.sep, cfp=cfp)
-b2 = "dat/b2.word"
+b2 = "{cfp}dat{sep}b2.word".format(sep=os.sep, cfp=cfp)
 fun = "{cfp}dat{sep}func.word".format(sep=os.sep, cfp=cfp)
 
 a1_words = []
