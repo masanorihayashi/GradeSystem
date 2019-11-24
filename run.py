@@ -9,8 +9,8 @@ import numpy as np
 from sklearn.externals import joblib
 
 import mord
+import regex
 import treetaggerwrapper
-
 
 import nltk
 from nltk.tokenize import sent_tokenize
@@ -123,7 +123,7 @@ class GrmItem:
         use_item = []
         for num, grm in enumerate(grmlist, 1):
             try:
-                _grm_freq = [re.findall(grm, sentence) for sentence in self.parsed]
+                _grm_freq = [regex.findall(grm, sentence) for sentence in self.parsed]
                 grm_freq = [flat for inner in _grm_freq for flat in inner]
                 if len(grm_freq) != 0:
                     grm_dic[num] = len(grm_freq)
