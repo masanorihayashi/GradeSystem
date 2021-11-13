@@ -18,11 +18,12 @@ from collections import Counter
 from collections import OrderedDict
 from sklearn.externals import joblib
 
-a1 = "dat/a1.word"
-a2 = "dat/a2.word"
-b1 = "dat/b1.word"
-b2 = "dat/b2.word"
-fun = "dat/func.word"
+cfp = os.path.dirname(os.path.abspath(__file__)) + os.sep
+a1 = "{cfp}dat{sep}a1.word".format(sep=os.sep, cfp=cfp)
+a2 = "{cfp}dat{sep}a2.word".format(sep=os.sep, cfp=cfp)
+b1 = "{cfp}dat{sep}b1.word".format(sep=os.sep, cfp=cfp)
+b2 = "{cfp}dat{sep}b2.word".format(sep=os.sep, cfp=cfp)
+fun = "{cfp}dat{sep}func.word".format(sep=os.sep, cfp=cfp)
 
 a1_words = []
 a2_words = []
@@ -103,7 +104,7 @@ class Surface:
 grmlist = []
 num_grm_dic = {}
 num_list_dic = {}
-with open('dat/grmitem.txt', 'r') as f:
+with open('{cfp}dat{sep}grmitem.txt'.format(sep=os.sep, cfp=cfp), 'r') as f:
     for num, i in enumerate(f, 1):
         grmlist.append(i.rstrip().split('\t')[1])
         num_grm_dic[num] = i.rstrip().split('\t')[1]
@@ -111,7 +112,11 @@ with open('dat/grmitem.txt', 'r') as f:
 
 class GrmItem:
     def __init__(self, text):
-        tagger = treetaggerwrapper.TreeTagger(TAGLANG='en',TAGDIR='/home/lr/hayashi/ra_web_app')
+#         tagger = treetaggerwrapper.TreeTagger(TAGLANG='en',TAGDIR='/home/lr/hayashi/ra_web_app')
+        tagger = treetaggerwrapper.TreeTagger(
+            TAGLANG='en', 
+            TAGDIR='{cfp}{sep}resource{sep}TreeTagger'.format(sep=os.sep,
+                                                              cfp=cfp))
         self.text = text
         #小文字にすると拾えない
         self.sentences = sent_tokenize(self.text)
@@ -184,9 +189,9 @@ class Feature:
         self.stats = stats
         self.word_dic = {}
         self.pos_dic = {}
-        for line in open("dat/word.dat", "r"):
+        for line in open("{cfp}dat{sep}word.dat".format(sep=os.sep, cfp=cfp), "r"):
             self.word_dic[line.split('\t')[1]] = line.split('\t')[0]
-        for line in open("dat/pos.dat", "r"):
+        for line in open("{cfp}dat{sep}pos.dat".format(sep=os.sep, cfp=cfp), "r"):
             self.pos_dic[line.split('\t')[1]]  = line.split('\t')[0]
 
     def ngram2vec(self):
